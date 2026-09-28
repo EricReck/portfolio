@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efffff">
+  <meta name="description" content="EricReck Developer de mods y addons para minecraft">
+  <title>EricReck — Minecraft mod & addon developer</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EricReck — Minecraft mod & addon developer">
+  <meta property="og:description" content="EricReck Developer de mods y addons para minecraft">
+  <meta property="og:image" content="profile%20picture.png">
+  <meta property="og:image:alt" content="Foto de perfil de EricReck">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EricReck — Minecraft mod & addon developer">
+  <meta name="twitter:description" content="EricReck Developer de mods y addons para minecraft">
+  <meta name="twitter:image" content="profile%20picture.png">
+  <meta name="twitter:image:alt" content="Foto de perfil de EricReck">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #efffff;
+      --white: #fff;
+      --ink: #073c43;
+      --muted: #52767a;
+      --teal: #08aeb2;
+      --deep: #057e87;
+      --line: #b9e9e6;
+      --lime: #d4f47a;
+      --mono: "DM Mono", monospace;
+      --display: "Space Grotesk", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(#7bd3ce 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+      font-family: var(--display);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .shell { width: min(1160px, calc(100% - 56px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgb(239 255 255 / 91%); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgb(8 174 178 / 24%);
+    }
+    .nav { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0; }
+    .brand-mark { display: block; width: 28px; aspect-ratio: 1; overflow: hidden; background: var(--teal); clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 72%, 72% 100%, 0 100%); }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .nav-links { display: flex; gap: 30px; align-items: center; font: 11px var(--mono); text-transform: uppercase; color: var(--muted); }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--deep); }
+    .nav-contact { padding: 11px 15px; border: 1px solid var(--ink); color: var(--ink) !important; }
+    .hero { min-height: min(760px, calc(100svh - 70px)); position: relative; display: grid; grid-template-columns: 1.07fr .93fr; align-items: center; gap: 3vw; padding-block: 46px 62px; }
+    .hero-copy { position: relative; z-index: 3; padding-block: 15px 32px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; font: 11px var(--mono); letter-spacing: 0; text-transform: uppercase; color: var(--deep); }
+    .status-dot { width: 9px; aspect-ratio: 1; border-radius: 50%; background: #75b833; box-shadow: 0 0 0 5px rgb(117 184 51 / 14%); animation: blink 2s ease-in-out infinite; }
+    h1 { margin: 0; font-size: clamp(66px, 9.2vw, 126px); line-height: .82; letter-spacing: 0; font-weight: 700; }
+    h1 span { display: block; color: var(--teal); }
+    .hero-sub { max-width: 510px; margin: 30px 0 0; font-size: clamp(17px, 2vw, 23px); line-height: 1.4; font-weight: 500; }
+    .hero-sub strong { color: var(--deep); }
+    .hero-note { max-width: 430px; margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 11px; padding: 0 17px; border: 1px solid var(--ink); font: 11px var(--mono); text-transform: uppercase; transition: transform .2s, background .2s, color .2s; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { border-color: var(--teal); color: white; background: var(--teal); box-shadow: 4px 4px 0 var(--ink); }
+    .button-primary:hover { background: var(--deep); }
+    .button-arrow { font-size: 17px; line-height: 0; }
+    .portrait-wrap { position: relative; min-height: 500px; height: min(65vw, 630px); display: grid; place-items: center; isolation: isolate; }
+    .portrait-halo { position: absolute; width: min(88%, 490px); aspect-ratio: 1; z-index: -2; border-radius: 50%; background: repeating-conic-gradient(from 6deg, #c8f5ee 0 12deg, #b3eee7 12deg 24deg); animation: spin 42s linear infinite; }
+    .portrait-halo::after { content: ""; position: absolute; inset: 12%; border-radius: 50%; background: var(--paper); border: 1px solid var(--line); }
+    .portrait-frame { position: absolute; inset: 8% 1% 4% 2%; border: 1px solid rgb(7 60 67 / 30%); transform: rotate(3deg); z-index: -1; }
+    .portrait { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(15px 16px 0 rgb(7 60 67 / 10%)); animation: hover 5s ease-in-out infinite; }
+    .pixel-label { position: absolute; z-index: 2; padding: 11px 13px; color: var(--ink); background: var(--lime); border: 1px solid var(--ink); font: 10px var(--mono); text-transform: uppercase; box-shadow: 4px 4px 0 var(--ink); }
+    .label-java { top: 17%; right: -2%; transform: rotate(4deg); }
+    .label-bedrock { left: -2%; bottom: 18%; transform: rotate(-4deg); background: white; }
+    .pixel-cross { position: absolute; right: 7%; bottom: 10%; font: 40px var(--mono); color: var(--teal); animation: turn 16s linear infinite; }
+    .scroll-hint { position: absolute; left: 0; bottom: 23px; display: flex; align-items: center; gap: 10px; font: 10px var(--mono); text-transform: uppercase; color: var(--muted); }
+    .scroll-hint::before { content: ""; width: 38px; height: 1px; background: var(--teal); }
+    .stats-band { background: var(--ink); color: white; position: relative; overflow: hidden; }
+    .stats-band::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 22px, #ffffff08 22px 23px); pointer-events: none; }
+    .stats { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); padding-block: 27px; }
+    .stat { padding: 3px 22px; border-right: 1px solid rgb(255 255 255 / 19%); }
+    .stat:first-child { padding-left: 0; }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:last-child { border: 0; }
+    .stat-value { display: block; color: var(--lime); font-size: clamp(27px, 3vw, 39px); font-weight: 700; line-height: 1.1; }
+    .stat-label { display: block; margin-top: 8px; color: #c4e2e0; font: 10px var(--mono); text-transform: uppercase; }
+    .section { padding-block: 104px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; }
+    .section-index { margin: 0 0 12px; color: var(--deep); font: 11px var(--mono); text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(38px, 6vw, 64px); line-height: .96; letter-spacing: 0; }
+    .section-intro { max-width: 360px; margin: 0 0 3px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .project-controls { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin: 0 0 20px; padding-block: 13px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter { padding: 9px 13px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; transition: .2s; }
+    .filter:hover, .filter[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); background: var(--lime); }
+    .project-count { color: var(--muted); font: 10px var(--mono); white-space: nowrap; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .project-card { width: 100%; min-height: 274px; position: relative; display: flex; flex-direction: column; padding: 19px; overflow: hidden; border: 1px solid var(--line); background: rgb(255 255 255 / 78%); color: var(--ink); text-align: left; cursor: pointer; transition: transform .24s, border-color .24s, box-shadow .24s; }
+    .project-card:hover { transform: translateY(-5px); border-color: var(--teal); box-shadow: 5px 5px 0 rgb(7 60 67 / 14%); }
+    .project-card:focus-visible { outline: 3px solid var(--deep); outline-offset: 3px; }
+    .project-card[hidden] { display: none; }
+    .project-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+    .project-mark { display: block; width: 52px; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+    .project-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .platform-tag { color: var(--deep); font: 9px var(--mono); text-transform: uppercase; text-align: right; }
+    .project-card h3 { margin: 26px 0 8px; font-size: 21px; line-height: 1.12; }
+    .project-card p { margin: 0; max-width: 37ch; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .project-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 23px; }
+    .project-downloads { color: var(--ink); font: 10px var(--mono); }
+    .project-downloads span { color: var(--muted); }
+    .project-open-hint { display: inline-flex; align-items: center; gap: 8px; color: var(--deep); font: 10px var(--mono); text-transform: uppercase; }
+    .project-open-hint span { width: 30px; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--ink); color: var(--ink); font-size: 16px; transition: background .2s; }
+    .project-card:hover .project-open-hint span { background: var(--lime); }
+    .project-dialog { width: min(640px, calc(100% - 28px)); max-height: min(86dvh, 760px); padding: 0; overflow: auto; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); }
+    .project-dialog::backdrop { background: rgb(7 60 67 / 68%); backdrop-filter: blur(5px); }
+    .dialog-panel { padding: clamp(21px, 5vw, 34px); }
+    .dialog-heading { display: grid; grid-template-columns: 76px 1fr 40px; align-items: start; gap: 17px; }
+    .dialog-icon { width: 76px; aspect-ratio: 1; border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+    .dialog-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .dialog-title { margin: 3px 0 8px; font-size: clamp(23px, 5vw, 34px); line-height: 1.05; }
+    .dialog-meta { margin: 0; color: var(--deep); font: 10px var(--mono); text-transform: uppercase; line-height: 1.6; }
+    .dialog-close { width: 40px; aspect-ratio: 1; border: 1px solid var(--ink); color: var(--ink); background: white; font-size: 23px; cursor: pointer; }
+    .dialog-close:hover { background: var(--lime); }
+    .dialog-description { margin-top: 27px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .dialog-description p { margin: 0 0 14px; }
+    .dialog-description p:last-child { margin-bottom: 0; }
+    .dialog-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .dialog-links a { min-height: 43px; display: inline-flex; align-items: center; gap: 10px; padding: 0 14px; border: 1px solid var(--ink); background: white; font: 10px var(--mono); text-transform: uppercase; transition: background .2s, transform .2s; }
+    .dialog-links a:hover { background: var(--lime); transform: translateY(-2px); }
+    .dialog-links a span { font-size: 15px; }
+    .work-section { padding-block: 0 100px; }
+    .work-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px; padding: 30px 33px; background: var(--lime); border: 1px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+    .work-panel .section-index { color: var(--ink); }
+    .work-panel h2 { font-size: clamp(27px, 4vw, 42px); }
+    .work-panel p:last-child { max-width: 550px; margin: 12px 0 0; color: #355d49; font-size: 14px; line-height: 1.6; }
+    .studio-stamp { padding: 19px; border: 1px solid var(--ink); background: var(--paper); font: 11px var(--mono); text-align: center; transform: rotate(3deg); }
+    .studio-stamp strong { display: block; margin-top: 8px; font: 700 20px var(--display); }
+    .contact-section { padding: 78px 0 90px; color: white; background: var(--teal); position: relative; overflow: hidden; }
+    .contact-section::after { content: "ER"; position: absolute; right: -20px; bottom: -125px; color: rgb(255 255 255 / 10%); font-size: clamp(200px, 35vw, 440px); font-weight: 700; line-height: 1; pointer-events: none; }
+    .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 30px; }
+    .contact-section .section-index { color: #d9fffb; }
+    .contact-section h2 { max-width: 660px; }
+    .contact-section .button { color: var(--ink); background: white; border-color: white; white-space: nowrap; }
+    .contact-section .button:hover { background: var(--lime); }
+    footer { padding-block: 18px; background: var(--ink); color: #c4e2e0; font: 10px var(--mono); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner a { color: white; }
+    .footer-socials { display: flex; align-items: center; gap: 14px; }
+    .footer-socials a { white-space: nowrap; }
+    .footer-avatar { display: block; width: 34px; aspect-ratio: 1; overflow: hidden; border: 1px solid white; border-radius: 50%; }
+    .footer-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .footer-socials a:hover { color: var(--lime); }
+    .footer-socials .footer-avatar:hover { border-color: var(--lime); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @keyframes blink { 50% { box-shadow: 0 0 0 8px rgb(117 184 51 / 5%); } }
+    @keyframes turn { to { transform: rotate(360deg); } }
+    @media (min-width: 1300px) { .shell { width: min(1160px, calc(100% - 100px)); } }
+    @media (max-width: 760px) {
+      .shell { width: calc(100% - 36px); }
+      .nav { height: 62px; }
+      .nav-links { gap: 14px; font-size: 9px; }
+      .nav-links a:nth-child(2) { display: none; }
+      .nav-contact { padding: 9px 10px; }
+      .hero { min-height: unset; grid-template-columns: 1fr; gap: 0; padding-block: 54px 48px; }
+      .hero-copy { padding: 0; }
+      h1 { font-size: clamp(70px, 17vw, 116px); }
+      .hero-sub { max-width: 390px; margin-top: 23px; }
+      .portrait-wrap { grid-row: 1; min-height: 300px; height: min(95vw, 430px); margin: -14px 0 12px; }
+      .portrait-halo { width: min(75%, 340px); }
+      .portrait-frame { inset: 6% 13% 4%; }
+      .portrait { width: min(78%, 380px); }
+      .label-java { right: 5%; top: 13%; }
+      .label-bedrock { left: 4%; bottom: 14%; }
+      .pixel-cross { right: 9%; bottom: 9%; }
+      .scroll-hint { display: none; }
+      .stats { grid-template-columns: repeat(2, 1fr); row-gap: 22px; padding-block: 25px; }
+      .stat { padding-inline: 14px; }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(3) { padding-left: 0; }
+      .section { padding-block: 76px; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 18px; }
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-card { min-height: 285px; padding: 15px; }
+      .project-card h3 { font-size: 18px; }
+      .project-controls { align-items: start; }
+      .work-section { padding-bottom: 75px; }
+      .work-panel { padding: 23px; }
+      .contact-inner { align-items: start; flex-direction: column; }
+      .contact-section { padding-block: 67px; }
+    }
+    @media (max-width: 460px) {
+      .shell { width: calc(100% - 28px); }
+      .nav-links { gap: 9px; }
+      .nav-links a:first-child { display: none; }
+      .hero { padding-top: 38px; }
+      .portrait-wrap { min-height: 270px; }
+      .hero-actions { align-items: stretch; }
+      .button { flex: 1 1 auto; padding-inline: 12px; }
+      .project-controls { display: block; }
+      .project-count { display: block; margin: 10px 0 0 12px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 225px; }
+      .work-panel { grid-template-columns: 1fr; }
+      .studio-stamp { justify-self: start; }
+      .footer-inner { flex-direction: column; gap: 9px; }
+      .dialog-heading { grid-template-columns: 58px 1fr 36px; gap: 11px; }
+      .dialog-icon { width: 58px; }
+      .dialog-close { width: 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="EricReck, inicio"><span class="brand-mark"><img src="profile%20picture.png" alt=""></span><span>EricReck</span></a>
+      <div class="nav-links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a class="nav-contact" href="#contacto">Hablemos ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Minecraft developer · Caos Studio</p>
+        <h1>Eric<span>Reck</span></h1>
+        <p class="hero-sub">Mods y addons que hacen que <strong>cada mundo juegue distinto.</strong></p>
+        <p class="hero-note">Desarrollo para Minecraft Java y Bedrock: desde sistemas de juego y herramientas para servidores hasta addons para tus mundos.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos">Ver proyectos <span class="button-arrow">↘</span></a>
+          <a class="button" href="#contacto">Discord <span class="button-arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="portrait-wrap" aria-label="Skin de Minecraft de EricReck">
+        <div class="portrait-halo" aria-hidden="true"></div>
+        <div class="portrait-frame" aria-hidden="true"></div>
+        <img class="portrait" src="minecraft-skin-studio-1152x2048.png" alt="Skin personalizada de Minecraft de EricReck">
+        <span class="pixel-label label-java">Java Edition</span>
+        <span class="pixel-label label-bedrock">Bedrock Edition</span>
+        <span class="pixel-cross" aria-hidden="true">✳</span>
+      </div>
+      <a class="scroll-hint" href="#proyectos">Scroll para explorar</a>
+    </section>
+
+    <section class="stats-band" aria-label="Estadísticas públicas">
+      <div class="stats shell">
+        <div class="stat"><span class="stat-value">4.8K+</span><span class="stat-label">Descargas combinadas</span></div>
+        <div class="stat"><span class="stat-value">7</span><span class="stat-label">Proyectos publicados</span></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="proyectos">
+      <div class="section-head reveal">
+        <div><p class="section-index">01 / Cosas que he creado</p><h2>Proyectos<br>del mundo real.</h2></div>
+        <p class="section-intro">Mods y addons publicados para cambiar las reglas, dar herramientas a los servidores o añadir una idea nueva al juego.</p>
+      </div>
+      <div class="project-controls reveal">
+        <div class="filters" role="group" aria-label="Filtrar proyectos por edición">
+          <button class="filter" type="button" aria-pressed="true" data-filter="all">Todos</button>
+          <button class="filter" type="button" aria-pressed="false" data-filter="java">Java</button>
+          <button class="filter" type="button" aria-pressed="false" data-filter="bedrock">Bedrock</button>
+        </div>
+        <span class="project-count" aria-live="polite">7 proyectos</span>
+      </div>
+      <div class="project-grid">
+        <button class="project-card reveal" type="button" data-edition="java" data-project="extremo-3" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/1894/991/256/256/639184854770159245.png" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
+          <h3>Extremo 3</h3>
+          <p>Recreación del evento Minecraft Extremo 3, creado por AuronPlay, con vidas, peligrosidad y PvP dinámico.</p>
+          <span class="project-bottom"><span class="project-downloads">2.6K+ <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="java" data-project="playtime-limiter" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/709/256/256/639260544718500834.PNG" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
+          <h3>PlayTime Limiter</h3>
+          <p>Sesiones y descansos configurables para ayudar a gestionar el tiempo en servidores.</p>
+          <span class="project-bottom"><span class="project-downloads">905+ <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="bedrock" data-project="jail-send" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/681/256/256/639260537289519323.png" alt=""></span><span class="platform-tag">Bedrock<br>CurseForge</span></span>
+          <h3>Jail Send</h3>
+          <p>Construye una cárcel, configura la condena y envía jugadores con cuenta atrás.</p>
+          <span class="project-bottom"><span class="project-downloads">806 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="java" data-project="waitscreen" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/1915/192/256/256/639194450402862258.png" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
+          <h3>WaitScreen</h3>
+          <p>Pantalla de espera para gestionar la entrada al servidor hasta que todo esté listo.</p>
+          <span class="project-bottom"><span class="project-downloads">271 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="bedrock" data-project="builder-hat" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/683/256/256/639260537865602565.png" alt=""></span><span class="platform-tag">Bedrock<br>CurseForge</span></span>
+          <h3>Builder Hat</h3>
+          <p>Un casco de constructor que se suma a la colección y protege como uno de hierro.</p>
+          <span class="project-bottom"><span class="project-downloads">210 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="java" data-project="blockit" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/602/256/256/639260510977327953.jpg" alt=""></span><span class="platform-tag">Java<br>CurseForge</span></span>
+          <h3>BlockIt</h3>
+          <p>Bloquea bloques, objetos o mods completos y permite excepciones concretas.</p>
+          <span class="project-bottom"><span class="project-downloads">4 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+        <button class="project-card reveal" type="button" data-edition="java" data-project="plasmo-voice-mute" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2071/612/256/256/639260210820571309.jpg" alt=""></span><span class="platform-tag">Java · Fabric 1.20.1<br>CurseForge</span></span>
+          <h3>Plasmo Voice @a mute</h3>
+          <p>Comandos de mute y unmute para jugadores que usan Plasmo Voice Chat.</p>
+          <span class="project-bottom"><span class="project-downloads">2 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
+      </div>
+    </section>
+
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-panel">
+        <div class="dialog-heading">
+          <div class="dialog-icon"><img id="dialog-icon" src="" alt=""></div>
+          <div><h3 class="dialog-title" id="dialog-title"></h3><p class="dialog-meta" id="dialog-meta"></p></div>
+          <button class="dialog-close" type="button" aria-label="Cerrar ficha del proyecto">×</button>
+        </div>
+        <div class="dialog-description" id="dialog-description"></div>
+        <div class="dialog-links" id="dialog-links" aria-label="Plataformas de descarga"></div>
+      </div>
+    </dialog>
+
+    <section class="work-section shell reveal" id="sobre-mi">
+      <div class="work-panel">
+        <div><p class="section-index">02 / Ahora mismo</p><h2>Desarrollando en Caos Studio.</h2><p>Trabajo como developer en Caos Studio y publico mis proyectos en CurseForge y Modrinth. Minecraft Java y Bedrock, ideas pequeñas y sistemas que dan juego.</p></div>
+        <div class="studio-stamp" aria-label="Developer en Caos Studio">CURRENTLY<br>BUILDING<strong>CAOS<br>STUDIO</strong></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div class="contact-inner shell reveal">
+        <div><p class="section-index">03 / Contacto</p><h2>¿Tienes una idea para el próximo mundo?</h2></div>
+        <button class="button" id="copy-discord" type="button"><span>@ericreck</span><span class="button-arrow" aria-hidden="true">⧉</span><span class="sr-only" id="copy-status" aria-live="polite"></span></button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-inner shell">
+      <span>© 2026 EricReck · Hecho para Minecraft</span>
+      <nav class="footer-socials" aria-label="Enlaces sociales">
+        <a class="footer-avatar" href="#contacto" aria-label="Contactar con EricReck"><img src="profile%20picture.png" alt=""></a>
+        <a href="https://www.curseforge.com/members/ericreck/projects" target="_blank" rel="noreferrer">CurseForge</a>
+        <a href="https://modrinth.com/user/EricReck" target="_blank" rel="noreferrer">Modrinth</a>
+        <a href="#contacto">Discord</a>
+      </nav>
+      <span class="footer-note">Datos consultados sep. 2026</span>
+    </div>
+  </footer>
+  <style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</style>
+  <script>
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const projectCards = document.querySelectorAll(".project-card");
+    const projectCount = document.querySelector(".project-count");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+        let visible = 0;
+        filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        projectCards.forEach((card) => {
+          const matches = selected === "all" || card.dataset.edition === selected;
+          card.hidden = !matches;
+          if (matches) visible += 1;
+        });
+        projectCount.textContent = `${visible} ${visible === 1 ? "proyecto" : "proyectos"}`;
+      });
+    });
+
+    const projectDetails = {
+      "extremo-3": {
+        title: "Extremo 3",
+        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
+        image: "https://media.forgecdn.net/avatars/thumbnails/1894/991/256/256/639184854770159245.png",
+        description: [
+          "Recreación del evento de Minecraft Extremo 3 creado por AuronPlay, llevada a un mod para Minecraft Java 1.21.1.",
+          "Incluye un sistema de cinco vidas, niveles de peligrosidad persistentes y consecuencias especiales al llegar a cero vidas.",
+          "Incluye controles globales de PvP, eventos de sonido, un HUD con el estado de las vidas y memoriales para jugadores eliminados."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/extreme-3-mechanics" },
+          { name: "Modrinth", href: "https://modrinth.com/mod/extremo-3" }
+        ]
+      },
+      "playtime-limiter": {
+        title: "PlayTime Limiter",
+        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
+        image: "https://media.forgecdn.net/avatars/thumbnails/2072/709/256/256/639260544718500834.PNG",
+        description: [
+          "Ayuda a gestionar el tiempo de juego en servidores con sesiones limitadas y descansos obligatorios configurables.",
+          "Muestra el tiempo restante en una BossBar, avisa antes de que termine la sesión y ofrece comandos para ajustar límites y pausas por jugador o para todo el servidor."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/playtimelimiter-neoforge" },
+          { name: "Modrinth", href: "https://modrinth.com/mod/neoforge-playtime-limiter" }
+        ]
+      },
+      "jail-send": {
+        title: "Jail Send",
+        meta: "Minecraft Bedrock · Add-on",
+        image: "https://media.forgecdn.net/avatars/thumbnails/2072/681/256/256/639260537289519323.png",
+        description: [
+          "Añade un sistema de cárcel configurable: construye el espacio, define sus coordenadas y ajusta la duración de la condena o las condiciones de liberación.",
+          "Con una acción puedes enviar allí a un jugador; dentro verá una cuenta atrás. Pensado para servidores, Realms, minijuegos y mundos de aventura."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft-bedrock/addons/jail-send" }
+        ]
+      },
+      waitscreen: {
+        title: "NeoForge WaitScreen",
+        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
+        image: "https://media.forgecdn.net/avatars/thumbnails/1915/192/256/256/639194450402862258.png",
+        description: [
+          "Muestra una pantalla de espera a quienes se conectan a un servidor o mundo LAN hasta que se cumpla el requisito de jugadores configurado.",
+          "Los operadores y administradores pueden entrar sin esperar. El estado se controla con comandos para activar, desactivar o cambiar el número de jugadores necesarios."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/waitscreen" },
+          { name: "Modrinth", href: "https://modrinth.com/mod/neoforge-waitscreen" }
+        ]
+      },
+      "builder-hat": {
+        title: "Builder Hat",
+        meta: "Minecraft Bedrock · Add-on",
+        image: "https://media.forgecdn.net/avatars/thumbnails/2072/683/256/256/639260537865602565.png",
+        description: [
+          "Añade un casco de constructor a la colección de sombreros de Minecraft Bedrock.",
+          "No reemplaza otros sombreros y ofrece la misma protección que un casco de hierro."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft-bedrock/addons/builder-hat" }
+        ]
+      },
+      blockit: {
+        title: "BlockIt",
+        meta: "Minecraft Java · Mod",
+        image: "https://media.forgecdn.net/avatars/thumbnails/2072/602/256/256/639260510977327953.jpg",
+        description: [
+          "Permite bloquear objetos y bloques de Minecraft vanilla o de otros mods.",
+          "Puedes bloquear mods completos y crear excepciones para dejar disponibles únicamente los objetos o bloques que necesitas."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/blockit" }
+        ]
+      },
+      "plasmo-voice-mute": {
+        title: "Plasmo Voice @a mute",
+        meta: "Minecraft Java 1.20.1 · Fabric · Add-on",
+        image: "https://media.forgecdn.net/avatars/thumbnails/2071/612/256/256/639260210820571309.jpg",
+        description: [
+          "Un complemento para Plasmo Voice Chat que permite silenciar o reactivar a todos los jugadores del servidor que usan el chat de voz.",
+          "También permite silenciar a una persona concreta y definir la duración del mute mediante comandos."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-addons/plasmo-voice-a-mute" }
+        ]
+      }
+    };
+
+    const projectDialog = document.querySelector("#project-dialog");
+    const dialogIcon = document.querySelector("#dialog-icon");
+    const dialogTitle = document.querySelector("#dialog-title");
+    const dialogMeta = document.querySelector("#dialog-meta");
+    const dialogDescription = document.querySelector("#dialog-description");
+    const dialogLinks = document.querySelector("#dialog-links");
+
+    projectCards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const project = projectDetails[card.dataset.project];
+        dialogIcon.src = project.image;
+        dialogTitle.textContent = project.title;
+        dialogMeta.textContent = project.meta;
+        dialogDescription.replaceChildren(...project.description.map((text) => {
+          const paragraph = document.createElement("p");
+          paragraph.textContent = text;
+          return paragraph;
+        }));
+        dialogLinks.replaceChildren(...project.platforms.map((platform) => {
+          const link = document.createElement("a");
+          link.href = platform.href;
+          link.target = "_blank";
+          link.rel = "noreferrer";
+          link.append(document.createTextNode(platform.name));
+          const arrow = document.createElement("span");
+          arrow.setAttribute("aria-hidden", "true");
+          arrow.textContent = "↗";
+          link.append(arrow);
+          return link;
+        }));
+        projectDialog.showModal();
+        projectDialog.querySelector(".dialog-close").focus();
+      });
+    });
+
+    projectDialog.querySelector(".dialog-close").addEventListener("click", () => projectDialog.close());
+    projectDialog.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        projectDialog.close();
+      }
+    });
+    projectDialog.addEventListener("click", (event) => {
+      if (event.target === projectDialog) projectDialog.close();
+    });
+
+    const copyButton = document.querySelector("#copy-discord");
+    const copyStatus = document.querySelector("#copy-status");
+    copyButton.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("@ericreck");
+        copyStatus.textContent = "Copiado";
+        copyButton.querySelector(".button-arrow").textContent = "✓";
+      } catch {
+        copyStatus.textContent = "Discord: @ericreck";
+      }
+      window.setTimeout(() => {
+        copyStatus.textContent = "";
+        copyButton.querySelector(".button-arrow").textContent = "⧉";
+      }, 2200);
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
