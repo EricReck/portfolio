@@ -56,14 +56,26 @@
       background: rgb(239 255 255 / 91%); backdrop-filter: blur(14px);
       border-bottom: 1px solid rgb(8 174 178 / 24%);
     }
-    .nav { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+    .nav { height: 70px; position: relative; display: flex; align-items: center; justify-content: space-between; }
     .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0; }
     .brand-mark { display: block; width: 28px; aspect-ratio: 1; overflow: hidden; background: var(--teal); clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 72%, 72% 100%, 0 100%); }
     .brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .nav-links { display: flex; gap: 30px; align-items: center; font: 11px var(--mono); text-transform: uppercase; color: var(--muted); }
     .nav-links a { transition: color .2s ease; }
     .nav-links a:hover { color: var(--deep); }
+    .nav-home { color: var(--ink); }
+    .nav-downloads { padding: 10px 13px; border: 1px solid var(--teal); color: var(--deep); }
+    .nav-downloads[aria-current="page"] { color: var(--ink); background: var(--lime); }
     .nav-contact { padding: 11px 15px; border: 1px solid var(--ink); color: var(--ink) !important; }
+    .nav-toggle { display: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); cursor: pointer; }
+    .nav-toggle:focus-visible { outline: 3px solid var(--deep); outline-offset: 3px; }
+    .menu-icon, .menu-icon::before, .menu-icon::after { width: 18px; height: 2px; display: block; position: relative; background: currentColor; transition: transform .2s ease; }
+    .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+    .menu-icon::before { transform: translateY(-6px); }
+    .menu-icon::after { transform: translateY(6px); }
+    .nav.menu-open .menu-icon { background: transparent; }
+    .nav.menu-open .menu-icon::before { transform: rotate(45deg); }
+    .nav.menu-open .menu-icon::after { transform: rotate(-45deg); }
     .hero { min-height: min(760px, calc(100svh - 70px)); position: relative; display: grid; grid-template-columns: 1.07fr .93fr; align-items: center; gap: 3vw; padding-block: 46px 62px; }
     .hero-copy { position: relative; z-index: 3; padding-block: 15px 32px; }
     .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; font: 11px var(--mono); letter-spacing: 0; text-transform: uppercase; color: var(--deep); }
@@ -117,6 +129,7 @@
     .project-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
     .project-mark { display: block; width: 52px; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
     .project-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .project-mark-text { display: grid; place-items: center; width: 100%; height: 100%; color: var(--ink); background: var(--lime); font: 700 15px var(--mono); }
     .platform-tag { color: var(--deep); font: 9px var(--mono); text-transform: uppercase; text-align: right; }
     .project-card h3 { margin: 26px 0 8px; font-size: 21px; line-height: 1.12; }
     .project-card p { margin: 0; max-width: 37ch; color: var(--muted); font-size: 13px; line-height: 1.55; }
@@ -130,6 +143,7 @@
     .project-dialog::backdrop { background: rgb(7 60 67 / 68%); backdrop-filter: blur(5px); }
     .dialog-panel { padding: clamp(21px, 5vw, 34px); }
     .dialog-heading { display: grid; grid-template-columns: 76px 1fr 40px; align-items: start; gap: 17px; }
+    .project-dialog.without-icon .dialog-heading { grid-template-columns: 1fr 40px; }
     .dialog-icon { width: 76px; aspect-ratio: 1; border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
     .dialog-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .dialog-title { margin: 3px 0 8px; font-size: clamp(23px, 5vw, 34px); line-height: 1.05; }
@@ -176,9 +190,12 @@
     @media (max-width: 760px) {
       .shell { width: calc(100% - 36px); }
       .nav { height: 62px; }
-      .nav-links { gap: 14px; font-size: 9px; }
-      .nav-links a:nth-child(2) { display: none; }
-      .nav-contact { padding: 9px 10px; }
+      .nav-toggle { display: grid; }
+      .nav-links { display: none; position: absolute; top: calc(100% + 1px); right: 0; left: 0; z-index: 2; align-items: stretch; gap: 0; padding: 8px 18px 16px; border: 1px solid var(--line); border-top: 0; background: rgb(239 255 255 / 98%); box-shadow: 0 8px 14px rgb(7 60 67 / 10%); }
+      .nav.menu-open .nav-links { display: flex; flex-direction: column; }
+      .nav-links a { min-height: 48px; display: flex; align-items: center; padding-inline: 10px; }
+      .nav-links .nav-downloads { border: 0; }
+      .nav-links .nav-contact { border: 0; border-top: 1px solid var(--line); }
       .hero { min-height: unset; grid-template-columns: 1fr; gap: 0; padding-block: 54px 48px; }
       .hero-copy { padding: 0; }
       h1 { font-size: clamp(70px, 17vw, 116px); }
@@ -209,8 +226,6 @@
     }
     @media (max-width: 460px) {
       .shell { width: calc(100% - 28px); }
-      .nav-links { gap: 9px; }
-      .nav-links a:first-child { display: none; }
       .hero { padding-top: 38px; }
       .portrait-wrap { min-height: 270px; }
       .hero-actions { align-items: stretch; }
@@ -235,11 +250,14 @@
 <body>
   <header class="topbar">
     <nav class="nav shell" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="EricReck, inicio"><span class="brand-mark"><img src="profile%20picture.png" alt=""></span><span>EricReck</span></a>
-      <div class="nav-links">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a class="nav-contact" href="#contacto">Hablemos ↗</a>
+      <a class="brand" href="index.html#inicio" aria-label="EricReck, inicio"><span class="brand-mark"><img src="profile%20picture.png" alt=""></span><span>EricReck</span></a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation"><span class="menu-icon" aria-hidden="true"></span></button>
+      <div class="nav-links" id="site-navigation">
+        <a class="nav-home" href="index.html#inicio" aria-current="page">Inicio</a>
+        <a class="nav-downloads" href="descargas.html">Descargas</a>
+        <a class="nav-secondary" href="index.html#proyectos">Proyectos</a>
+        <a class="nav-secondary" href="index.html#sobre-mi">Sobre mí</a>
+        <a class="nav-contact" href="index.html#contacto">Hablemos ↗</a>
       </div>
     </nav>
   </header>
@@ -270,7 +288,7 @@
     <section class="stats-band" aria-label="Estadísticas públicas">
       <div class="stats shell">
         <div class="stat"><span class="stat-value">4.8K+</span><span class="stat-label">Descargas combinadas</span></div>
-        <div class="stat"><span class="stat-value">7</span><span class="stat-label">Proyectos publicados</span></div>
+        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Proyectos publicados</span></div>
       </div>
     </section>
 
@@ -285,9 +303,15 @@
           <button class="filter" type="button" aria-pressed="false" data-filter="java">Java</button>
           <button class="filter" type="button" aria-pressed="false" data-filter="bedrock">Bedrock</button>
         </div>
-        <span class="project-count" aria-live="polite">7 proyectos</span>
+        <span class="project-count" aria-live="polite">8 proyectos</span>
       </div>
       <div class="project-grid">
+        <button class="project-card reveal" type="button" data-edition="java" data-project="dedsafio4-mechanics" aria-haspopup="dialog" aria-controls="project-dialog">
+          <span class="project-top"><span class="project-mark"><span class="project-mark-text" aria-hidden="true">D4</span></span><span class="platform-tag">Java · Caos Studio<br>CurseForge</span></span>
+          <h3>Dedsafio 4 Mechanics</h3>
+          <p>Catálogo de objetos, misiones configurables, hermandades, pedestal diario y nuevos objetos para Dedsafio 4.</p>
+          <span class="project-bottom"><span class="project-downloads">Nueva versión <span>disponible</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
+        </button>
         <button class="project-card reveal" type="button" data-edition="java" data-project="extremo-3" aria-haspopup="dialog" aria-controls="project-dialog">
           <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/1894/991/256/256/639184854770159245.png" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
           <h3>Extremo 3</h3>
@@ -347,8 +371,8 @@
 
     <section class="work-section shell reveal" id="sobre-mi">
       <div class="work-panel">
-        <div><p class="section-index">02 / Ahora mismo</p><h2>Desarrollando en Caos Studio.</h2><p>Trabajo como developer en Caos Studio y publico mis proyectos en CurseForge y Modrinth. Minecraft Java y Bedrock, ideas pequeñas y sistemas que dan juego.</p></div>
-        <div class="studio-stamp" aria-label="Developer en Caos Studio">CURRENTLY<br>BUILDING<strong>CAOS<br>STUDIO</strong></div>
+        <div><p class="section-index">02 / Ahora mismo</p><h2>Colaborando en Caos Studio.</h2><p>Colaboro como developer en Caos Studio y publico mis proyectos en CurseForge y Modrinth. Minecraft Java y Bedrock, ideas pequeñas y sistemas que dan juego.</p></div>
+        <div class="studio-stamp" aria-label="Colaborando en Caos Studio">COLLABORATING<strong>CAOS<br>STUDIO</strong></div>
       </div>
     </section>
 
@@ -373,6 +397,28 @@
   </footer>
   <style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</style>
   <script>
+    const siteNav = document.querySelector(".nav");
+    const navToggle = document.querySelector(".nav-toggle");
+
+    function closeNavigation() {
+      siteNav.classList.remove("menu-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Abrir menú");
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("menu-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    });
+    siteNav.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", closeNavigation));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeNavigation();
+    });
+    document.addEventListener("click", (event) => {
+      if (!siteNav.contains(event.target)) closeNavigation();
+    });
+
     const filterButtons = document.querySelectorAll("[data-filter]");
     const projectCards = document.querySelectorAll(".project-card");
     const projectCount = document.querySelector(".project-count");
@@ -392,6 +438,18 @@
     });
 
     const projectDetails = {
+      "dedsafio4-mechanics": {
+        title: "Dedsafio 4 Mechanics",
+        meta: "Minecraft Java · Mod · Caos Studio",
+        image: "",
+        description: [
+          "Mod de Dedsafio 4 con catálogo de objetos, misiones configurables con progreso persistente, pedestal de misión diaria y hermandades.",
+          "La actualización también incluye mejoras de interfaz, cambios de dificultad y nuevos objetos como tótems, corazones y bolsas. Los waypoints ampliados tienen fallos de renderizado y escalado previstos para corregirse en la próxima actualización."
+        ],
+        platforms: [
+          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" }
+        ]
+      },
       "extremo-3": {
         title: "Extremo 3",
         meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
@@ -492,6 +550,8 @@
     projectCards.forEach((card) => {
       card.addEventListener("click", () => {
         const project = projectDetails[card.dataset.project];
+        projectDialog.classList.toggle("without-icon", !project.image);
+        dialogIcon.parentElement.hidden = !project.image;
         dialogIcon.src = project.image;
         dialogTitle.textContent = project.title;
         dialogMeta.textContent = project.meta;
