@@ -23,6 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cookies.css">
+  <script src="cookies.js" defer></script>
   <style>
     :root {
       color-scheme: light;
@@ -167,6 +169,7 @@
     .contact-section { padding: 78px 0 90px; color: white; background: var(--teal); position: relative; overflow: hidden; }
     .contact-section::after { content: "ER"; position: absolute; right: -20px; bottom: -125px; color: rgb(255 255 255 / 10%); font-size: clamp(200px, 35vw, 440px); font-weight: 700; line-height: 1; pointer-events: none; }
     .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 30px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .contact-section .section-index { color: #d9fffb; }
     .contact-section h2 { max-width: 660px; }
     .contact-section .button { color: var(--ink); background: white; border-color: white; white-space: nowrap; }
@@ -307,7 +310,7 @@
       </div>
       <div class="project-grid">
         <button class="project-card reveal" type="button" data-edition="java" data-project="dedsafio4-mechanics" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><span class="project-mark-text" aria-hidden="true">D4</span></span><span class="platform-tag">Java · EricReck<br>CurseForge</span></span>
+          <span class="project-top"><span class="project-mark"><span class="project-mark-text" aria-hidden="true">D4</span></span><span class="platform-tag">Java · Caos Studio<br>CurseForge</span></span>
           <h3>Dedsafio 4 Mechanics</h3>
           <p>Catálogo de objetos, misiones configurables, hermandades, pedestal diario y nuevos objetos para Dedsafio 4.</p>
           <span class="project-bottom"><span class="project-downloads">Nueva versión <span>disponible</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
@@ -379,7 +382,10 @@
     <section class="contact-section" id="contacto">
       <div class="contact-inner shell reveal">
         <div><p class="section-index">03 / Contacto</p><h2>¿Tienes una idea para el próximo mundo?</h2></div>
-        <button class="button" id="copy-discord" type="button"><span>@ericreck</span><span class="button-arrow" aria-hidden="true">⧉</span><span class="sr-only" id="copy-status" aria-live="polite"></span></button>
+        <div class="contact-actions">
+          <button class="button" id="copy-discord" type="button"><span>@ericreck</span><span class="button-arrow" aria-hidden="true">⧉</span><span class="sr-only" id="copy-status" aria-live="polite"></span></button>
+          <a class="button" href="https://discord.gg/8H5veDVzuM" target="_blank" rel="noreferrer">Unirse al Discord <span class="button-arrow" aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
   </main>
@@ -391,6 +397,8 @@
         <a href="https://www.curseforge.com/members/ericreck/projects" target="_blank" rel="noreferrer">CurseForge</a>
         <a href="https://modrinth.com/user/EricReck" target="_blank" rel="noreferrer">Modrinth</a>
         <a href="#contacto">Discord</a>
+        <a href="privacidad.html">Privacidad</a>
+        <button class="cookie-settings" type="button" data-cookie-settings>Cookies</button>
       </nav>
       <span class="footer-note">Datos consultados sep. 2026</span>
     </div>
