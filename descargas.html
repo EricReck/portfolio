@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efffff">
+  <meta name="google-adsense-account" content="ca-pub-3618331689570044">
+  <meta name="description" content="Descargas oficiales de los proyectos de EricReck para Minecraft.">
+  <title>Descargas — EricReck</title>
+  <link rel="icon" type="image/png" href="profile%20picture.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3618331689570044" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #efffff;
+      --white: #fff;
+      --ink: #073c43;
+      --muted: #52767a;
+      --teal: #08aeb2;
+      --deep: #057e87;
+      --line: #b9e9e6;
+      --lime: #d4f47a;
+      --mono: "DM Mono", monospace;
+      --display: "Space Grotesk", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--ink); background-color: var(--paper); background-image: radial-gradient(#7bd3ce 0.8px, transparent 0.8px); background-size: 24px 24px; font-family: var(--display); }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    .shell { width: min(1060px, calc(100% - 56px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgb(239 255 255 / 91%); backdrop-filter: blur(14px); border-bottom: 1px solid rgb(8 174 178 / 24%); }
+    .nav { height: 70px; position: relative; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0; }
+    .brand-mark { width: 28px; aspect-ratio: 1; overflow: hidden; background: var(--teal); clip-path: polygon(0 0,100% 0,100% 72%,72% 72%,72% 100%,0 100%); }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .nav-links { display: flex; gap: 30px; align-items: center; color: var(--muted); font: 11px var(--mono); text-transform: uppercase; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover { color: var(--deep); }
+    .nav-home { color: var(--ink); }
+    .nav-downloads { padding: 10px 13px; border: 1px solid var(--teal); color: var(--deep); }
+    .nav-downloads[aria-current="page"] { color: var(--ink); background: var(--lime); }
+    .nav-contact { padding: 11px 15px; border: 1px solid var(--ink); color: var(--ink) !important; }
+    .nav-toggle { display: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); cursor: pointer; }
+    .nav-toggle:focus-visible { outline: 3px solid var(--deep); outline-offset: 3px; }
+    .menu-icon, .menu-icon::before, .menu-icon::after { width: 18px; height: 2px; display: block; position: relative; background: currentColor; transition: transform .2s ease; }
+    .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+    .menu-icon::before { transform: translateY(-6px); }
+    .menu-icon::after { transform: translateY(6px); }
+    .nav.menu-open .menu-icon { background: transparent; }
+    .nav.menu-open .menu-icon::before { transform: rotate(45deg); }
+    .nav.menu-open .menu-icon::after { transform: rotate(-45deg); }
+    main { padding-block: 64px 100px; }
+    .eyebrow, .section-index { margin: 0 0 12px; color: var(--deep); font: 11px var(--mono); text-transform: uppercase; }
+    h1 { max-width: 800px; margin: 0; font-size: clamp(46px, 8vw, 88px); line-height: .92; }
+    .intro { max-width: 600px; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .download-area { max-width: 850px; margin-top: 46px; }
+    .download-card { padding: clamp(22px, 4vw, 34px); border: 1px solid var(--ink); background: rgb(255 255 255 / 86%); box-shadow: 7px 7px 0 var(--ink); }
+    .card-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+    .mod-mark { width: 58px; aspect-ratio: 1; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid var(--ink); background: var(--lime); box-shadow: 3px 3px 0 var(--ink); font: 700 20px var(--mono); }
+    .tag { color: var(--deep); font: 10px var(--mono); text-align: right; text-transform: uppercase; line-height: 1.6; }
+    h2 { margin: 25px 0 9px; font-size: clamp(27px, 4vw, 38px); line-height: 1; }
+    .summary { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .release { margin-top: 24px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .release h3 { margin: 0 0 12px; font-size: 18px; }
+    .release ul { display: grid; gap: 9px; margin: 0; padding-left: 19px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .release li::marker { color: var(--teal); }
+    .more-notes { margin-top: 14px; color: var(--deep); font: 11px var(--mono); }
+    .more-notes summary { cursor: pointer; }
+    .more-notes ul { margin-top: 12px; }
+    .card-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
+    .button { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 15px; border: 1px solid var(--ink); color: var(--ink); background: var(--white); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; transition: transform .2s, background .2s; }
+    .button:hover:not(:disabled) { transform: translateY(-2px); background: var(--lime); }
+    .button-primary { border-color: var(--teal); color: white; background: var(--teal); box-shadow: 4px 4px 0 var(--ink); }
+    .button-primary:hover:not(:disabled) { color: white; background: var(--deep); }
+    .button:disabled { cursor: not-allowed; opacity: .45; }
+    footer { padding-block: 18px; color: #c4e2e0; background: var(--ink); font: 10px var(--mono); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner a { color: white; }
+    .download-dialog { width: min(570px, calc(100% - 28px)); max-height: min(88dvh, 760px); padding: 0; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); }
+    .download-dialog::backdrop { background: rgb(7 60 67 / 72%); backdrop-filter: blur(5px); }
+    .dialog-panel { padding: clamp(20px, 5vw, 32px); }
+    .dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 18px; }
+    .dialog-head h2 { margin: 0; font-size: 25px; }
+    .dialog-close { width: 38px; aspect-ratio: 1; flex: 0 0 auto; border: 1px solid var(--ink); background: white; color: var(--ink); font-size: 22px; cursor: pointer; }
+    .ad-box { min-height: 156px; display: grid; align-content: center; justify-items: center; gap: 8px; margin-top: 22px; padding: 20px; border: 1px dashed var(--deep); background: repeating-linear-gradient(135deg, #fff 0 12px, #f5ffff 12px 24px); text-align: center; }
+    .ad-label { color: var(--deep); font: 10px var(--mono); text-transform: uppercase; }
+    .ad-box strong { font-size: 19px; }
+    .ad-box p { max-width: 360px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .adsbygoogle { display: block; width: 100%; min-height: 120px; }
+    .timer { margin: 13px 0 0; color: var(--deep); font: 11px var(--mono); text-align: center; }
+    .terms { margin-top: 22px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .terms h3 { margin: 0 0 9px; font-size: 16px; }
+    .terms p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .legal-viewport {
+      max-height: 360px;
+      overflow-y: auto;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 0 0 1px rgba(7, 60, 67, 0.02);
+    }
+    .legal-copy { display: grid; gap: 10px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .legal-copy strong { color: var(--ink); }
+    .legal-copy ul { margin: 0; padding-left: 18px; }
+    .legal-copy li + li { margin-top: 4px; }
+    .terms-check { display: flex; align-items: start; gap: 10px; margin-top: 14px; font-size: 12px; line-height: 1.5; }
+    .terms-check input { width: 17px; height: 17px; flex: 0 0 auto; margin: 1px 0 0; accent-color: var(--teal); }
+    .dialog-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 22px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 760px) {
+      .shell { width: calc(100% - 36px); }
+      .nav { height: 62px; }
+      .nav-toggle { display: grid; }
+      .nav-links { display: none; position: absolute; top: calc(100% + 1px); right: 0; left: 0; z-index: 2; align-items: stretch; gap: 0; padding: 8px 18px 16px; border: 1px solid var(--line); border-top: 0; background: rgb(239 255 255 / 98%); box-shadow: 0 8px 14px rgb(7 60 67 / 10%); }
+      .nav.menu-open .nav-links { display: flex; flex-direction: column; }
+      .nav-links a { min-height: 48px; display: flex; align-items: center; padding-inline: 10px; }
+      .nav-links .nav-downloads { border: 0; }
+      .nav-links .nav-contact { border: 0; border-top: 1px solid var(--line); }
+      main { padding-block: 48px 76px; }
+      .download-area { margin-top: 32px; }
+      .download-card { padding: 24px; }
+      .release ul { gap: 12px; font-size: 14px; line-height: 1.6; }
+      .card-actions .button { width: 100%; }
+    }
+    @media (max-width: 720px) {
+      .download-area { max-width: none; }
+    }
+    @media (max-width: 460px) {
+      .shell { width: calc(100% - 28px); }
+      main { padding-block: 40px 64px; }
+      h1 { font-size: 38px; line-height: 1; }
+      .intro { margin-top: 15px; font-size: 15px; }
+      .download-area { margin-top: 26px; }
+      .download-card { padding: 19px; }
+      .card-top { gap: 10px; }
+      .tag { font-size: 9px; }
+      .mod-mark { width: 50px; font-size: 18px; }
+      .release { margin-top: 20px; }
+      .download-dialog { max-height: 94dvh; }
+      .dialog-panel { padding: 16px; }
+      .dialog-head h2 { font-size: 22px; }
+      .ad-box { min-height: 116px; gap: 6px; margin-top: 14px; padding: 14px; }
+      .ad-box strong { font-size: 17px; }
+      .terms { margin-top: 16px; padding-top: 14px; }
+      .terms p { line-height: 1.45; }
+      .terms-check { margin-top: 10px; }
+      .dialog-actions { gap: 8px; margin-top: 14px; }
+      .dialog-actions { flex-direction: column-reverse; }
+      .dialog-actions .button { width: 100%; }
+      .footer-inner { flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Navegación principal">
+      <a class="brand" href="index.html#inicio" aria-label="EricReck, inicio"><span class="brand-mark"><img src="profile%20picture.png" alt=""></span><span>EricReck</span></a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation"><span class="menu-icon" aria-hidden="true"></span></button>
+      <div class="nav-links" id="site-navigation">
+        <a class="nav-home" href="index.html#inicio">Inicio</a>
+        <a class="nav-downloads" href="descargas.html" aria-current="page">Descargas</a>
+        <a class="nav-secondary" href="index.html#proyectos">Proyectos</a>
+        <a class="nav-secondary" href="index.html#sobre-mi">Sobre mí</a>
+        <a class="nav-contact" href="index.html#contacto">Hablemos ↗</a>
+      </div>
+    </nav>
+  </header>
+  <main class="shell">
+    <p class="eyebrow">Archivo de proyectos / EricReck</p>
+    <h1>Descargas para<br>tu próximo mundo.</h1>
+    <p class="intro">Mods y recursos oficiales. Antes de continuar, revisa el anuncio y acepta las condiciones de descarga.</p>
+
+    <div class="download-area">
+      <article class="download-card">
+        <div class="card-top"><span class="mod-mark" aria-hidden="true">D4</span><span class="tag">Minecraft Java<br>Mod · Caos Studio</span></div>
+        <h2>Dedsafio 4 Mechanics</h2>
+        <p class="summary">Mecánicas, misiones y sistemas para la experiencia Dedsafio 4. Descarga la versión 1.1.1 directamente desde esta página.</p>
+        <section class="release" aria-labelledby="release-title">
+          <h3 id="release-title">Novedades de la actualización</h3>
+          <ul>
+            <li>Buzón arreglado.</li>
+            <li>Catálogo de objetos: se abre con G, permite buscar y consultar detalles, y desde ahí acceder a Misiones y Hermandades.</li>
+            <li>Sistema de misiones configurables con objetivos de matar, recoger y romper; progreso persistente entre sesiones y recompensas de monedas u objetos. Los operadores pueden crear, editar, borrar y reiniciar misiones desde la interfaz.</li>
+            <li>Pedestal de misión diaria: los operadores configuran el día y las recompensas en una cuadrícula de 7×3. Al canjear la Dedita rosa correspondiente, comienza una animación con sonido y partículas multicolor, seguida de fuegos artificiales. La recompensa llega por correo de Eón y el logro se anuncia a todos en el chat con el nombre azul y en negrita y la cara de la skin.</li>
+            <li>Hermandades con invitaciones, chat de miembros, lista de integrantes, tablón de anuncios, ubicaciones compartidas, estandartes y herramientas de administración.</li>
+          </ul>
+          <details class="more-notes">
+            <summary>Más cambios de esta actualización</summary>
+            <ul>
+              <li>Waypoints ampliados; quedan fallos de renderizado y escalado que se corregirán en la próxima actualización.</li>
+              <li>Mejoras de interfaz: progreso de misiones, vista previa de criaturas, paneles de administración y descripciones completas de objetos en los tooltips.</li>
+              <li>Nuevos cambios de dificultad.</li>
+              <li>Nuevos objetos, como tótems, corazones y bolsas.</li>
+            </ul>
+          </details>
+        </section>
+        <div class="card-actions">
+          <a class="button" href="https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" target="_blank" rel="noreferrer">Ver mod de Dedsafio <span aria-hidden="true">↗</span></a>
+          <button class="button button-primary" type="button" data-download-url="dedsafio4-1.1.1.jar" data-download-filename="dedsafio4-1.1.1.jar">Descargar Dedsafio 4 Mechanics <span aria-hidden="true">↓</span></button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+  <footer><div class="footer-inner shell"><span>© 2026 EricReck · Hecho para Minecraft</span><a href="https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" target="_blank" rel="noreferrer">Página oficial en CurseForge ↗</a></div></footer>
+
+  <dialog class="download-dialog" id="download-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-panel">
+      <div class="dialog-head"><div><p class="section-index">Antes de descargar</p><h2 id="dialog-title">Anuncio y condiciones</h2></div><button class="dialog-close" type="button" aria-label="Cerrar">×</button></div>
+      <section class="ad-box" aria-label="Anuncio de Google AdSense">
+        <span class="ad-label">Anuncio · Google AdSense</span>
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:120px;"
+             data-ad-client="ca-pub-3618331689570044"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </section>
+      <p class="timer" id="ad-timer" aria-live="polite">El anuncio termina en 10 segundos.</p>
+      <section class="terms" aria-labelledby="terms-title">
+        <h3 id="terms-title">Términos y condiciones del mod Dedsafio 4 Mechanics</h3>
+        <div class="legal-viewport">
+          <div class="legal-copy">
+            <p><strong>PROPIETARY MOD LICENSE</strong><br><strong>ALL RIGHTS RESERVED</strong></p>
+
+            <p><strong>Project:</strong> Dedsafio 4 Mechanics<br><strong>Author / Copyright Holder:</strong> EricReck<br><strong>License Version:</strong> 1.0<br><strong>Mod Version:</strong> 1.1.1<br><strong>Effective Date:</strong> 15/10/2026<br><strong>Official Website:</strong> https://ericreck.vercel.app/</p>
+
+          <p>Copyright © 2026 EricReck. All rights reserved.</p>
+
+          <p>Esta licencia regula la descarga, instalación y uso del mod identificado anteriormente (el “Mod”). Al descargar, instalar, copiar o utilizar el Mod, reconoces que has leído y entendido esta licencia y aceptas cumplir sus términos, en la medida permitida por la legislación aplicable.</p>
+
+          <p>Si no aceptas estos términos, no descargues, instales ni uses el Mod.</p>
+
+          <p><strong>1. OWNERSHIP AND COPYRIGHT</strong><br>El Mod, incluyendo su código fuente original, archivos compilados, activos originales, documentación, texturas, modelos, archivos de configuración y demás materiales originales suministrados por el titular de derechos, está protegido por las leyes aplicables de copyright e propiedad intelectual.</p>
+
+          <p>Todos los derechos, título e interés sobre los materiales originales que componen el Mod permanecen en sus respectivos titulares de derechos. No se transfiere ninguna propiedad del Mod al usuario por descargarlo, instalarlo o usarlo.</p>
+
+          <p>El nombre, la marca, los logotipos y otros elementos identificativos del Mod también pueden estar protegidos. Esta licencia no concede derechos sobre materiales de terceros más allá de los permisos de sus respectivos titulares.</p>
+
+          <p><strong>2. LIMITED PERSONAL-USE LICENSE</strong><br>Subject to compliance with this license, the copyright holder grants you a limited, non-exclusive, non-transferable, revocable license to:</p>
+
+          <ul>
+            <li>Descargar el Mod desde su página oficial de distribución.</li>
+            <li>Instalar y ejecutar el Mod para uso personal y no comercial.</li>
+            <li>Usar el Mod localmente o en un servidor multijugador, siempre que no redistribuyas el Mod en violación de esta licencia.</li>
+            <li>Guardar una copia de seguridad personal cuando lo permita la ley aplicable.</li>
+          </ul>
+
+          <p>Esta licencia no transfiere propiedad del Mod ni concede derechos distintos a los expresamente indicados.</p>
+
+          <p><strong>3. PROHIBITED REDISTRIBUTION</strong><br>Sin previo permiso escrito del titular de derechos, no puedes:</p>
+
+          <ul>
+            <li>Reutilizar, subir, duplicar, mirror, re-publicar o redistribuir el Mod o copias de sus archivos en sitios de terceros, plataformas, repositorios, servicios de alojamiento o lanzadores.</li>
+            <li>Distribuir el Mod a través de plataformas de mods de terceros, incluyendo sitios web de hosting y servicios públicos de distribución.</li>
+            <li>Incluir el Mod, total o parcialmente, en modpacks de terceros, bundles, instaladores o paquetes distribuidos a otras personas.</li>
+            <li>Subir el Mod a un repositorio público o servicio de intercambio para su distribución.</li>
+            <li>Ofrecer otra ubicación de descarga que aloje una copia del Mod.</li>
+            <li>Vender, sublicenciar, alquilar o distribuir comercialmente el Mod o sus materiales originales.</li>
+            <li>Eliminar o alterar avisos de copyright o información de licencia incluidos con el Mod.</li>
+          </ul>
+
+          <p>Compartir el enlace a la página oficial de descarga queda permitido y se recomienda. Puedes recomendar el Mod, hablar de él, reseñarlo o dirigir a otras personas a la web oficial, siempre que no representes afiliación con el autor.</p>
+
+          <p>Estas restricciones solo se aplican a materiales y derechos controlados por el titular y están sujetas a los derechos irrenunciables y excepciones previstos por la legislación aplicable.</p>
+
+          <p><strong>4. MODIFICATION AND DERIVATIVE WORKS</strong><br>Sin permiso previo por escrito del titular de derechos, no puedes distribuir públicamente versiones modificadas del Mod ni obras derivadas basadas en sus materiales originales.</p>
+
+          <p>No puedes publicar builds modificados, forks no oficiales, versiones reempaquetadas o copias alteradas bajo el nombre original del proyecto de forma que sugiera respaldo oficial.</p>
+
+          <p>Esta sección no prohíbe actividades que la legislación permita expresamente y que no puedan restringirse legalmente.</p>
+
+          <p><strong>5. SOURCE CODE AND DECOMPILATION</strong><br>Salvo que el titular de derechos publique el código fuente bajo una licencia que lo permita, no se concede permiso para redistribuir el código fuente del Mod ni publicar versiones descompiladas o reconstruidas de su código original.</p>
+
+          <p>Cualquier restricción de esta sección está sujeta a las excepciones obligatorias que puedan aplicarse por ley, incluida la interoperabilidad, la investigación de seguridad u otras actividades protegidas. Tener una copia compilada no concede propiedad ni derechos ilimitados sobre el código fuente.</p>
+
+          <p><strong>6. MODPACKS AND THIRD-PARTY LAUNCHERS</strong><br>El Mod no puede incluirse en un modpack distribuido públicamente, paquete de terceros, instalación empaquetada u otra distribución de terceros sin autorización previa del titular de derechos. Los usuarios y creadores de modpacks pueden enlazar a la página oficial de descarga.</p>
+
+          <p>Esta restricción no permite prohibir actividades autorizadas de forma independiente por la legislación aplicable o por las licencias de materiales de terceros.</p>
+
+          <p><strong>7. ATTRIBUTION AND PROJECT IDENTITY</strong><br>Puedes identificar el Mod por su nombre oficial al comentar, reseñar o recomendarlo. No puedes reclamar autoría, propiedad ni afiliación oficial con el proyecto. No puedes quitar avisos de copyright ni licencias de copias que legalmente tengas permiso para poseer o usar.</p>
+
+          <p><strong>8. THIRD-PARTY MATERIALS AND DEPENDENCIES</strong><br>El Mod puede depender de Fabric, Minecraft, librerías, APIs o materiales de terceros regulados por licencias separadas. Esos materiales siguen sujetos a sus respectivas condiciones. Esta licencia solo aplica a materiales originales sobre los que el titular de derechos identificado tiene los derechos necesarios.</p>
+
+          <p>Nada en esta licencia anula derechos concedidos por una licencia de terceros ni restringe derechos que deban mantenerse disponibles. Minecraft y Fabric no pertenecen al titular del Mod; este proyecto no es un producto oficial suyo ni implica su respaldo.</p>
+
+          <p><strong>9. DISCLAIMER OF WARRANTIES</strong><br>En la máxima medida permitida por la legislación aplicable, el Mod se ofrece “TAL CUAL” y “SEGÚN DISPONIBILIDAD”, sin garantías de ningún tipo, expresas o implícitas. El titular de derechos no garantiza que el Mod esté libre de errores, sea continuo, compatible con cada configuración o adecuado para cualquier propósito.</p>
+
+          <p>El usuario es responsable de conservar copias de seguridad y comprobar la compatibilidad antes de instalarlo. Esta sección no excluye ni limita garantías o derechos de consumidores que legalmente no puedan excluirse o limitarse.</p>
+
+          <p><strong>10. LIMITATION OF LIABILITY</strong><br>En la máxima medida permitida por la legislación aplicable, el titular de derechos no será responsable de pérdidas indirectas, incidentales, especiales o consecuentes derivadas del uso o imposibilidad de uso del Mod.</p>
+
+          <p>Nada en esta licencia excluye ni limita responsabilidades cuando la legislación lo prohíba, incluida cualquier responsabilidad que no pueda renunciarse legalmente.</p>
+
+          <p><strong>11. TERMINATION</strong><br>Los permisos concedidos bajo esta licencia pueden terminar si incumples materialmente sus términos, sujetos a cualquier requisito legal aplicable y a derechos que la ley deba preservar. Tras la terminación, deberás cesar todas las actividades no autorizadas por esta licencia.</p>
+
+          <p>La terminación no elimina derechos ni excepciones que deban seguir disponibles conforme a la ley.</p>
+
+          <p><strong>12. CHANGES AND NEW VERSIONS</strong><br>El titular de derechos puede publicar versiones actualizadas del Mod o revisar los términos aplicables a versiones futuras. A menos que se indique lo contrario, una nueva versión de la licencia no reescribe automáticamente los términos aplicables a copias anteriores obtenidas legalmente bajo una versión previa.</p>
+
+          <p>Cada lanzamiento puede identificar la versión de licencia que le corresponde.</p>
+
+          <p><strong>13. PERMISSIONS AND EXCEPTIONS</strong><br>Cualquier permiso para redistribuir, modificar, empaquetar o usar comercialmente el Mod debe obtenerse por escrito del titular de derechos. El titular puede conceder excepciones o permisos adicionales caso por caso.</p>
+
+          <p>Una excepción concedida a una persona no concede automáticamente el mismo permiso a otras.</p>
+
+          <p><strong>14. REPORTING UNAUTHORIZED DISTRIBUTION</strong><br>Si descubres una copia del Mod distribuida sin autorización, puedes notificar al titular de derechos a través de la información de contacto oficial. Incluye la ubicación de la copia sospechosa y cualquier dato relevante.</p>
+
+          <p>El titular puede investigar y ejercer las acciones disponibles cuando corresponda conforme a la legislación aplicable.</p>
+
+          <p><strong>15. GOVERNING LAW</strong><br>Esta licencia se rige por las leyes aplicables de copyright y propiedad intelectual. Cualquier disposición de ley o jurisdicción aplicable debe interpretarse consistentemente con la protección legal imperativa y los requisitos no renunciables.</p>
+
+          <p><strong>16. SEVERABILITY</strong><br>Si alguna disposición de esta licencia se considera inválida o no ejecutable, las restantes permanecerán en vigor en la medida permitida por la ley.</p>
+
+          <p><strong>17. ENTIRE LICENSE</strong><br>Este documento describe los permisos concedidos por el titular de derechos para el Mod y sustituye declaraciones anteriores sobre los mismos permisos, salvo que exista un acuerdo escrito separado.</p>
+
+            <p><strong>18. CONTACT</strong><br>Para solicitudes de licencia, permisos de redistribución o consultas, contacta con:<br><strong>Author:</strong> EricReck<br><strong>Official Website:</strong> https://ericreck.vercel.app/<br><strong>Contact:</strong> [tu-email-de-contacto]</p>
+
+            <p><strong>ALL RIGHTS RESERVED.</strong><br>No se conceden derechos salvo los expresamente indicados en esta licencia o los exigidos por la ley aplicable.</p>
+          </div>
+        </div>
+        <label class="terms-check"><input id="terms-accepted" type="checkbox" disabled><span>He leído y acepto estos términos y condiciones.</span></label>
+      </section>
+      <div class="dialog-actions"><button class="button" id="cancel-download" type="button">Cancelar</button><button class="button button-primary" id="confirm-download" type="button" disabled>Continuar a la descarga</button></div>
+    </div>
+  </dialog>
+  <script>
+    const siteNav = document.querySelector(".nav");
+    const navToggle = document.querySelector(".nav-toggle");
+
+    function closeNavigation() {
+      siteNav.classList.remove("menu-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Abrir menú");
+    }
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("menu-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    });
+    siteNav.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", closeNavigation));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeNavigation();
+    });
+    document.addEventListener("click", (event) => {
+      if (!siteNav.contains(event.target)) closeNavigation();
+    });
+
+    const dialog = document.querySelector("#download-dialog");
+    const timerLabel = document.querySelector("#ad-timer");
+    const termsCheckbox = document.querySelector("#terms-accepted");
+    const confirmButton = document.querySelector("#confirm-download");
+    const closeButton = document.querySelector(".dialog-close");
+    let pendingDownload = null;
+    let timerId = null;
+
+    function resetGate() {
+      window.clearInterval(timerId);
+      timerId = null;
+      pendingDownload = null;
+      termsCheckbox.checked = false;
+      termsCheckbox.disabled = true;
+      confirmButton.disabled = true;
+      timerLabel.textContent = "El anuncio termina en 10 segundos.";
+    }
+
+    function startDownloadGate(download) {
+      resetGate();
+      pendingDownload = download;
+      dialog.showModal();
+      closeButton.focus();
+      let secondsRemaining = 10;
+      timerId = window.setInterval(() => {
+        secondsRemaining -= 1;
+        if (secondsRemaining > 0) {
+          timerLabel.textContent = `El anuncio termina en ${secondsRemaining} segundos.`;
+          return;
+        }
+        window.clearInterval(timerId);
+        timerId = null;
+        timerLabel.textContent = "Anuncio finalizado. Ya puedes aceptar las condiciones.";
+        termsCheckbox.disabled = false;
+        termsCheckbox.focus();
+      }, 1000);
+    }
+
+    document.querySelectorAll("[data-download-url]").forEach((button) => {
+      button.addEventListener("click", () => startDownloadGate({
+        url: button.dataset.downloadUrl,
+        filename: button.dataset.downloadFilename
+      }));
+    });
+
+    termsCheckbox.addEventListener("change", () => {
+      confirmButton.disabled = !termsCheckbox.checked;
+    });
+
+    confirmButton.addEventListener("click", () => {
+      if (!termsCheckbox.checked || !pendingDownload?.url) return;
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pendingDownload.url;
+      downloadLink.download = pendingDownload.filename || "";
+      downloadLink.hidden = true;
+      document.body.append(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      dialog.close();
+      resetGate();
+    });
+
+    function closeDialog() {
+      dialog.close();
+      resetGate();
+    }
+
+    closeButton.addEventListener("click", closeDialog);
+    document.querySelector("#cancel-download").addEventListener("click", closeDialog);
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) closeDialog();
+    });
+    dialog.addEventListener("close", resetGate);
+
+  </script>
+</body>
+</html>
