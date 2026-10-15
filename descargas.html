@@ -4,22 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#efffff">
-  <meta name="description" content="EricReck Developer de mods y addons para minecraft">
-  <title>EricReck — Minecraft mod & addon developer</title>
+  <meta name="google-adsense-account" content="ca-pub-3618331689570044">
+  <meta name="description" content="Descargas oficiales de los proyectos de EricReck para Minecraft.">
+  <title>Descargas — EricReck</title>
   <link rel="icon" type="image/png" href="profile%20picture.png">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="EricReck — Minecraft mod & addon developer">
-  <meta property="og:description" content="EricReck Developer de mods y addons para minecraft">
-  <meta property="og:image" content="og-image.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Foto de perfil de EricReck">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EricReck — Minecraft mod & addon developer">
-  <meta name="twitter:description" content="EricReck Developer de mods y addons para minecraft">
-  <meta name="twitter:image" content="og-image.png">
-  <meta name="twitter:image:alt" content="Foto de perfil de EricReck">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,29 +28,16 @@
       --display: "Space Grotesk", sans-serif;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background-color: var(--paper);
-      background-image: radial-gradient(#7bd3ce 0.8px, transparent 0.8px);
-      background-size: 24px 24px;
-      font-family: var(--display);
-      overflow-x: hidden;
-    }
+    body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--ink); background-color: var(--paper); background-image: radial-gradient(#7bd3ce 0.8px, transparent 0.8px); background-size: 24px 24px; font-family: var(--display); }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .shell { width: min(1160px, calc(100% - 56px)); margin-inline: auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 20;
-      background: rgb(239 255 255 / 91%); backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgb(8 174 178 / 24%);
-    }
+    button, input { font: inherit; }
+    .shell { width: min(1060px, calc(100% - 56px)); margin-inline: auto; }
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgb(239 255 255 / 91%); backdrop-filter: blur(14px); border-bottom: 1px solid rgb(8 174 178 / 24%); }
     .nav { height: 70px; position: relative; display: flex; align-items: center; justify-content: space-between; }
     .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0; }
-    .brand-mark { display: block; width: 28px; aspect-ratio: 1; overflow: hidden; background: var(--teal); clip-path: polygon(0 0, 100% 0, 100% 72%, 72% 72%, 72% 100%, 0 100%); }
+    .brand-mark { width: 28px; aspect-ratio: 1; overflow: hidden; background: var(--teal); clip-path: polygon(0 0,100% 0,100% 72%,72% 72%,72% 100%,0 100%); }
     .brand-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .nav-links { display: flex; gap: 30px; align-items: center; font: 11px var(--mono); text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: flex; gap: 30px; align-items: center; color: var(--muted); font: 11px var(--mono); text-transform: uppercase; }
     .nav-links a { transition: color .2s ease; }
     .nav-links a:hover { color: var(--deep); }
     .nav-home { color: var(--ink); }
@@ -78,118 +53,65 @@
     .nav.menu-open .menu-icon { background: transparent; }
     .nav.menu-open .menu-icon::before { transform: rotate(45deg); }
     .nav.menu-open .menu-icon::after { transform: rotate(-45deg); }
-    .hero { min-height: min(760px, calc(100svh - 70px)); position: relative; display: grid; grid-template-columns: 1.07fr .93fr; align-items: center; gap: 3vw; padding-block: 46px 62px; }
-    .hero-copy { position: relative; z-index: 3; padding-block: 15px 32px; }
-    .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 24px; font: 11px var(--mono); letter-spacing: 0; text-transform: uppercase; color: var(--deep); }
-    .status-dot { width: 9px; aspect-ratio: 1; border-radius: 50%; background: #75b833; box-shadow: 0 0 0 5px rgb(117 184 51 / 14%); animation: blink 2s ease-in-out infinite; }
-    h1 { margin: 0; font-size: clamp(66px, 9.2vw, 126px); line-height: .82; letter-spacing: 0; font-weight: 700; }
-    h1 span { display: block; color: var(--teal); }
-    .hero-sub { max-width: 510px; margin: 30px 0 0; font-size: clamp(17px, 2vw, 23px); line-height: 1.4; font-weight: 500; }
-    .hero-sub strong { color: var(--deep); }
-    .hero-note { max-width: 430px; margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
-    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 11px; padding: 0 17px; border: 1px solid var(--ink); font: 11px var(--mono); text-transform: uppercase; transition: transform .2s, background .2s, color .2s; }
-    .button:hover { transform: translateY(-3px); }
+    main { padding-block: 64px 100px; }
+    .eyebrow, .section-index { margin: 0 0 12px; color: var(--deep); font: 11px var(--mono); text-transform: uppercase; }
+    h1 { max-width: 800px; margin: 0; font-size: clamp(46px, 8vw, 88px); line-height: .92; }
+    .intro { max-width: 600px; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .download-area { max-width: 850px; margin-top: 46px; }
+    .download-card { padding: clamp(22px, 4vw, 34px); border: 1px solid var(--ink); background: rgb(255 255 255 / 86%); box-shadow: 7px 7px 0 var(--ink); }
+    .card-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+    .mod-cover { width: 86px; aspect-ratio: 1; flex: 0 0 auto; border: 1px solid var(--ink); object-fit: cover; box-shadow: 3px 3px 0 var(--ink); }
+    .tag { color: var(--deep); font: 10px var(--mono); text-align: right; text-transform: uppercase; line-height: 1.6; }
+    h2 { margin: 25px 0 9px; font-size: clamp(27px, 4vw, 38px); line-height: 1; }
+    .summary { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .release { margin-top: 24px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .release h3 { margin: 0 0 12px; font-size: 18px; }
+    .release ul { display: grid; gap: 9px; margin: 0; padding-left: 19px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .release li::marker { color: var(--teal); }
+    .more-notes { margin-top: 14px; color: var(--deep); font: 11px var(--mono); }
+    .more-notes summary { cursor: pointer; }
+    .more-notes ul { margin-top: 12px; }
+    .card-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 26px; }
+    .button { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 15px; border: 1px solid var(--ink); color: var(--ink); background: var(--white); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; transition: transform .2s, background .2s; }
+    .button:hover:not(:disabled) { transform: translateY(-2px); background: var(--lime); }
     .button-primary { border-color: var(--teal); color: white; background: var(--teal); box-shadow: 4px 4px 0 var(--ink); }
-    .button-primary:hover { background: var(--deep); }
-    .button-arrow { font-size: 17px; line-height: 0; }
-    .portrait-wrap { position: relative; min-height: 500px; height: min(65vw, 630px); display: grid; place-items: center; isolation: isolate; }
-    .portrait-halo { position: absolute; width: min(88%, 490px); aspect-ratio: 1; z-index: -2; border-radius: 50%; background: repeating-conic-gradient(from 6deg, #c8f5ee 0 12deg, #b3eee7 12deg 24deg); animation: spin 42s linear infinite; }
-    .portrait-halo::after { content: ""; position: absolute; inset: 12%; border-radius: 50%; background: var(--paper); border: 1px solid var(--line); }
-    .portrait-frame { position: absolute; inset: 8% 1% 4% 2%; border: 1px solid rgb(7 60 67 / 30%); transform: rotate(3deg); z-index: -1; }
-    .portrait { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: drop-shadow(15px 16px 0 rgb(7 60 67 / 10%)); animation: hover 5s ease-in-out infinite; }
-    .pixel-label { position: absolute; z-index: 2; padding: 11px 13px; color: var(--ink); background: var(--lime); border: 1px solid var(--ink); font: 10px var(--mono); text-transform: uppercase; box-shadow: 4px 4px 0 var(--ink); }
-    .label-java { top: 17%; right: -2%; transform: rotate(4deg); }
-    .label-bedrock { left: -2%; bottom: 18%; transform: rotate(-4deg); background: white; }
-    .pixel-cross { position: absolute; right: 7%; bottom: 10%; font: 40px var(--mono); color: var(--teal); animation: turn 16s linear infinite; }
-    .scroll-hint { position: absolute; left: 0; bottom: 23px; display: flex; align-items: center; gap: 10px; font: 10px var(--mono); text-transform: uppercase; color: var(--muted); }
-    .scroll-hint::before { content: ""; width: 38px; height: 1px; background: var(--teal); }
-    .stats-band { background: var(--ink); color: white; position: relative; overflow: hidden; }
-    .stats-band::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 22px, #ffffff08 22px 23px); pointer-events: none; }
-    .stats { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); padding-block: 27px; }
-    .stat { padding: 3px 22px; border-right: 1px solid rgb(255 255 255 / 19%); }
-    .stat:first-child { padding-left: 0; }
-    .stat:nth-child(2) { border-right: 0; }
-    .stat:last-child { border: 0; }
-    .stat-value { display: block; color: var(--lime); font-size: clamp(27px, 3vw, 39px); font-weight: 700; line-height: 1.1; }
-    .stat-label { display: block; margin-top: 8px; color: #c4e2e0; font: 10px var(--mono); text-transform: uppercase; }
-    .section { padding-block: 104px; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; }
-    .section-index { margin: 0 0 12px; color: var(--deep); font: 11px var(--mono); text-transform: uppercase; }
-    h2 { margin: 0; font-size: clamp(38px, 6vw, 64px); line-height: .96; letter-spacing: 0; }
-    .section-intro { max-width: 360px; margin: 0 0 3px; color: var(--muted); font-size: 14px; line-height: 1.65; }
-    .project-controls { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin: 0 0 20px; padding-block: 13px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
-    .filter { padding: 9px 13px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; transition: .2s; }
-    .filter:hover, .filter[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); background: var(--lime); }
-    .project-count { color: var(--muted); font: 10px var(--mono); white-space: nowrap; }
-    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .project-card { width: 100%; min-height: 274px; position: relative; display: flex; flex-direction: column; padding: 19px; overflow: hidden; border: 1px solid var(--line); background: rgb(255 255 255 / 78%); color: var(--ink); text-align: left; cursor: pointer; transition: transform .24s, border-color .24s, box-shadow .24s; }
-    .project-card:hover { transform: translateY(-5px); border-color: var(--teal); box-shadow: 5px 5px 0 rgb(7 60 67 / 14%); }
-    .project-card:focus-visible { outline: 3px solid var(--deep); outline-offset: 3px; }
-    .project-card[hidden] { display: none; }
-    .project-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
-    .project-mark { display: block; width: 52px; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
-    .project-mark img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .project-mark-text { display: grid; place-items: center; width: 100%; height: 100%; color: var(--ink); background: var(--lime); font: 700 15px var(--mono); }
-    .platform-tag { color: var(--deep); font: 9px var(--mono); text-transform: uppercase; text-align: right; }
-    .project-card h3 { margin: 26px 0 8px; font-size: 21px; line-height: 1.12; }
-    .project-card p { margin: 0; max-width: 37ch; color: var(--muted); font-size: 13px; line-height: 1.55; }
-    .project-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 23px; }
-    .project-downloads { color: var(--ink); font: 10px var(--mono); }
-    .project-downloads span { color: var(--muted); }
-    .project-open-hint { display: inline-flex; align-items: center; gap: 8px; color: var(--deep); font: 10px var(--mono); text-transform: uppercase; }
-    .project-open-hint span { width: 30px; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid var(--ink); color: var(--ink); font-size: 16px; transition: background .2s; }
-    .project-card:hover .project-open-hint span { background: var(--lime); }
-    .project-dialog { width: min(640px, calc(100% - 28px)); max-height: min(86dvh, 760px); padding: 0; overflow: auto; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); }
-    .project-dialog::backdrop { background: rgb(7 60 67 / 68%); backdrop-filter: blur(5px); }
-    .dialog-panel { padding: clamp(21px, 5vw, 34px); }
-    .dialog-heading { display: grid; grid-template-columns: 76px 1fr 40px; align-items: start; gap: 17px; }
-    .project-dialog.without-icon .dialog-heading { grid-template-columns: 1fr 40px; }
-    .dialog-icon { width: 76px; aspect-ratio: 1; border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
-    .dialog-icon img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .dialog-title { margin: 3px 0 8px; font-size: clamp(23px, 5vw, 34px); line-height: 1.05; }
-    .dialog-meta { margin: 0; color: var(--deep); font: 10px var(--mono); text-transform: uppercase; line-height: 1.6; }
-    .dialog-close { width: 40px; aspect-ratio: 1; border: 1px solid var(--ink); color: var(--ink); background: white; font-size: 23px; cursor: pointer; }
-    .dialog-close:hover { background: var(--lime); }
-    .dialog-description { margin-top: 27px; color: var(--muted); font-size: 15px; line-height: 1.75; }
-    .dialog-description p { margin: 0 0 14px; }
-    .dialog-description p:last-child { margin-bottom: 0; }
-    .dialog-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
-    .dialog-links a { min-height: 43px; display: inline-flex; align-items: center; gap: 10px; padding: 0 14px; border: 1px solid var(--ink); background: white; font: 10px var(--mono); text-transform: uppercase; transition: background .2s, transform .2s; }
-    .dialog-links a:hover { background: var(--lime); transform: translateY(-2px); }
-    .dialog-links a span { font-size: 15px; }
-    .work-section { padding-block: 0 100px; }
-    .work-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px; padding: 30px 33px; background: var(--lime); border: 1px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
-    .work-panel .section-index { color: var(--ink); }
-    .work-panel h2 { font-size: clamp(27px, 4vw, 42px); }
-    .work-panel p:last-child { max-width: 550px; margin: 12px 0 0; color: #355d49; font-size: 14px; line-height: 1.6; }
-    .studio-stamp { padding: 19px; border: 1px solid var(--ink); background: var(--paper); font: 11px var(--mono); text-align: center; transform: rotate(3deg); }
-    .studio-stamp strong { display: block; margin-top: 8px; font: 700 20px var(--display); }
-    .contact-section { padding: 78px 0 90px; color: white; background: var(--teal); position: relative; overflow: hidden; }
-    .contact-section::after { content: "ER"; position: absolute; right: -20px; bottom: -125px; color: rgb(255 255 255 / 10%); font-size: clamp(200px, 35vw, 440px); font-weight: 700; line-height: 1; pointer-events: none; }
-    .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 30px; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .contact-section .section-index { color: #d9fffb; }
-    .contact-section h2 { max-width: 660px; }
-    .contact-section .button { color: var(--ink); background: white; border-color: white; white-space: nowrap; }
-    .contact-section .button:hover { background: var(--lime); }
-    footer { padding-block: 18px; background: var(--ink); color: #c4e2e0; font: 10px var(--mono); }
+    .button-primary:hover:not(:disabled) { color: white; background: var(--deep); }
+    .button:disabled { cursor: not-allowed; opacity: .45; }
+    footer { padding-block: 18px; color: #c4e2e0; background: var(--ink); font: 10px var(--mono); }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
     .footer-inner a { color: white; }
-    .footer-socials { display: flex; align-items: center; gap: 14px; }
-    .footer-socials a { white-space: nowrap; }
-    .footer-avatar { display: block; width: 34px; aspect-ratio: 1; overflow: hidden; border: 1px solid white; border-radius: 50%; }
-    .footer-avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .footer-socials a:hover { color: var(--lime); }
-    .footer-socials .footer-avatar:hover { border-color: var(--lime); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    @keyframes blink { 50% { box-shadow: 0 0 0 8px rgb(117 184 51 / 5%); } }
-    @keyframes turn { to { transform: rotate(360deg); } }
-    @media (min-width: 1300px) { .shell { width: min(1160px, calc(100% - 100px)); } }
+    .download-dialog { width: min(570px, calc(100% - 28px)); max-height: min(88dvh, 760px); padding: 0; border: 1px solid var(--ink); color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 var(--ink); }
+    .download-dialog::backdrop { background: rgb(7 60 67 / 72%); backdrop-filter: blur(5px); }
+    .dialog-panel { padding: clamp(20px, 5vw, 32px); }
+    .dialog-head { display: flex; align-items: start; justify-content: space-between; gap: 18px; }
+    .dialog-head h2 { margin: 0; font-size: 25px; }
+    .dialog-close { width: 38px; aspect-ratio: 1; flex: 0 0 auto; border: 1px solid var(--ink); background: white; color: var(--ink); font-size: 22px; cursor: pointer; }
+    .ad-box { min-height: 156px; display: grid; align-content: center; justify-items: center; gap: 8px; margin-top: 22px; padding: 20px; border: 1px dashed var(--deep); background: repeating-linear-gradient(135deg, #fff 0 12px, #f5ffff 12px 24px); text-align: center; }
+    .ad-label { color: var(--deep); font: 10px var(--mono); text-transform: uppercase; }
+    .ad-box strong { font-size: 19px; }
+    .ad-box p { max-width: 360px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .adsbygoogle { display: block; width: 100%; min-height: 120px; }
+    .timer { margin: 13px 0 0; color: var(--deep); font: 11px var(--mono); text-align: center; }
+    .terms { margin-top: 22px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .terms h3 { margin: 0 0 9px; font-size: 16px; }
+    .terms p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .legal-viewport {
+      max-height: 360px;
+      overflow-y: auto;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 0 0 1px rgba(7, 60, 67, 0.02);
+    }
+    .legal-copy { display: grid; gap: 10px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .legal-copy strong { color: var(--ink); }
+    .legal-copy ul { margin: 0; padding-left: 18px; }
+    .legal-copy li + li { margin-top: 4px; }
+    .terms-check { display: flex; align-items: start; gap: 10px; margin-top: 14px; font-size: 12px; line-height: 1.5; }
+    .terms-check input { width: 17px; height: 17px; flex: 0 0 auto; margin: 1px 0 0; accent-color: var(--teal); }
+    .dialog-actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 22px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     @media (max-width: 760px) {
       .shell { width: calc(100% - 36px); }
       .nav { height: 62px; }
@@ -199,55 +121,40 @@
       .nav-links a { min-height: 48px; display: flex; align-items: center; padding-inline: 10px; }
       .nav-links .nav-downloads { border: 0; }
       .nav-links .nav-contact { border: 0; border-top: 1px solid var(--line); }
-      .hero { min-height: unset; grid-template-columns: 1fr; gap: 0; padding-block: 54px 48px; }
-      .hero-copy { padding: 0; }
-      h1 { font-size: clamp(70px, 17vw, 116px); }
-      .hero-sub { max-width: 390px; margin-top: 23px; }
-      .portrait-wrap { grid-row: 1; min-height: 300px; height: min(95vw, 430px); margin: -14px 0 12px; }
-      .portrait-halo { width: min(75%, 340px); }
-      .portrait-frame { inset: 6% 13% 4%; }
-      .portrait { width: min(78%, 380px); }
-      .label-java { right: 5%; top: 13%; }
-      .label-bedrock { left: 4%; bottom: 14%; }
-      .pixel-cross { right: 9%; bottom: 9%; }
-      .scroll-hint { display: none; }
-      .stats { grid-template-columns: repeat(2, 1fr); row-gap: 22px; padding-block: 25px; }
-      .stat { padding-inline: 14px; }
-      .stat:nth-child(2) { border-right: 0; }
-      .stat:nth-child(3) { padding-left: 0; }
-      .section { padding-block: 76px; }
-      .section-head { display: block; }
-      .section-intro { margin-top: 18px; }
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .project-card { min-height: 285px; padding: 15px; }
-      .project-card h3 { font-size: 18px; }
-      .project-controls { align-items: start; }
-      .work-section { padding-bottom: 75px; }
-      .work-panel { padding: 23px; }
-      .contact-inner { align-items: start; flex-direction: column; }
-      .contact-section { padding-block: 67px; }
+      main { padding-block: 48px 76px; }
+      .download-area { margin-top: 32px; }
+      .download-card { padding: 24px; }
+      .release ul { gap: 12px; font-size: 14px; line-height: 1.6; }
+      .card-actions .button { width: 100%; }
+    }
+    @media (max-width: 720px) {
+      .download-area { max-width: none; }
     }
     @media (max-width: 460px) {
       .shell { width: calc(100% - 28px); }
-      .hero { padding-top: 38px; }
-      .portrait-wrap { min-height: 270px; }
-      .hero-actions { align-items: stretch; }
-      .button { flex: 1 1 auto; padding-inline: 12px; }
-      .project-controls { display: block; }
-      .project-count { display: block; margin: 10px 0 0 12px; }
-      .project-grid { grid-template-columns: 1fr; }
-      .project-card { min-height: 225px; }
-      .work-panel { grid-template-columns: 1fr; }
-      .studio-stamp { justify-self: start; }
-      .footer-inner { flex-direction: column; gap: 9px; }
-      .dialog-heading { grid-template-columns: 58px 1fr 36px; gap: 11px; }
-      .dialog-icon { width: 58px; }
-      .dialog-close { width: 36px; }
+      main { padding-block: 40px 64px; }
+      h1 { font-size: 38px; line-height: 1; }
+      .intro { margin-top: 15px; font-size: 15px; }
+      .download-area { margin-top: 26px; }
+      .download-card { padding: 19px; }
+      .card-top { gap: 10px; }
+      .tag { font-size: 9px; }
+      .mod-cover { width: 64px; }
+      .release { margin-top: 20px; }
+      .download-dialog { max-height: 94dvh; }
+      .dialog-panel { padding: 16px; }
+      .dialog-head h2 { font-size: 22px; }
+      .ad-box { min-height: 116px; gap: 6px; margin-top: 14px; padding: 14px; }
+      .ad-box strong { font-size: 17px; }
+      .terms { margin-top: 16px; padding-top: 14px; }
+      .terms p { line-height: 1.45; }
+      .terms-check { margin-top: 10px; }
+      .dialog-actions { gap: 8px; margin-top: 14px; }
+      .dialog-actions { flex-direction: column-reverse; }
+      .dialog-actions .button { width: 100%; }
+      .footer-inner { flex-direction: column; gap: 8px; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
@@ -256,154 +163,173 @@
       <a class="brand" href="index.html#inicio" aria-label="EricReck, inicio"><span class="brand-mark"><img src="profile%20picture.png" alt=""></span><span>EricReck</span></a>
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-navigation"><span class="menu-icon" aria-hidden="true"></span></button>
       <div class="nav-links" id="site-navigation">
-        <a class="nav-home" href="index.html#inicio" aria-current="page">Inicio</a>
-        <a class="nav-downloads" href="descargas.html">Descargas</a>
+        <a class="nav-home" href="index.html#inicio">Inicio</a>
+        <a class="nav-downloads" href="descargas.html" aria-current="page">Descargas</a>
         <a class="nav-secondary" href="index.html#proyectos">Proyectos</a>
         <a class="nav-secondary" href="index.html#sobre-mi">Sobre mí</a>
         <a class="nav-contact" href="index.html#contacto">Hablemos ↗</a>
       </div>
     </nav>
   </header>
+  <main class="shell">
+    <p class="eyebrow">Archivo de proyectos / EricReck</p>
+    <h1>Descargas para<br>tu próximo mundo.</h1>
+    <p class="intro">Mods y recursos oficiales. Antes de continuar, revisa el anuncio y acepta las condiciones de descarga.</p>
 
-  <main>
-    <section class="hero shell" id="inicio">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> Minecraft developer</p>
-        <h1>Eric<span>Reck</span></h1>
-        <p class="hero-sub">Mods y addons que hacen que <strong>cada mundo juegue distinto.</strong></p>
-        <p class="hero-note">Desarrollo para Minecraft Java y Bedrock: desde sistemas de juego y herramientas para servidores hasta addons para tus mundos.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#proyectos">Ver proyectos <span class="button-arrow">↘</span></a>
-          <a class="button" href="#contacto">Discord <span class="button-arrow">↗</span></a>
+    <div class="download-area">
+      <article class="download-card">
+        <div class="card-top"><img class="mod-cover" src="dedsafio4-cover.png" alt="Portada de Dedsafio4 mechanics" loading="lazy" decoding="async"><span class="tag">Minecraft Java<br>Mod · Caos Studio</span></div>
+        <h2>Dedsafio 4 Mechanics</h2>
+        <p class="summary">Mecánicas, misiones y sistemas para la experiencia Dedsafio 4. Descarga la versión 1.1.1 directamente desde esta página.</p>
+        <section class="release" aria-labelledby="release-title">
+          <h3 id="release-title">Novedades de la actualización</h3>
+          <ul>
+            <li>Buzón arreglado.</li>
+            <li>Catálogo de objetos: se abre con G, permite buscar y consultar detalles, y desde ahí acceder a Misiones y Hermandades.</li>
+            <li>Sistema de misiones configurables con objetivos de matar, recoger y romper; progreso persistente entre sesiones y recompensas de monedas u objetos. Los operadores pueden crear, editar, borrar y reiniciar misiones desde la interfaz.</li>
+            <li>Pedestal de misión diaria: los operadores configuran el día y las recompensas en una cuadrícula de 7×3. Al canjear la Dedita rosa correspondiente, comienza una animación con sonido y partículas multicolor, seguida de fuegos artificiales. La recompensa llega por correo de Eón y el logro se anuncia a todos en el chat con el nombre azul y en negrita y la cara de la skin.</li>
+            <li>Hermandades con invitaciones, chat de miembros, lista de integrantes, tablón de anuncios, ubicaciones compartidas, estandartes y herramientas de administración.</li>
+          </ul>
+          <details class="more-notes">
+            <summary>Más cambios de esta actualización</summary>
+            <ul>
+              <li>Waypoints ampliados; quedan fallos de renderizado y escalado que se corregirán en la próxima actualización.</li>
+              <li>Mejoras de interfaz: progreso de misiones, vista previa de criaturas, paneles de administración y descripciones completas de objetos en los tooltips.</li>
+              <li>Nuevos cambios de dificultad.</li>
+              <li>Nuevos objetos, como tótems, corazones y bolsas.</li>
+            </ul>
+          </details>
+        </section>
+        <div class="card-actions">
+          <a class="button" href="https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" target="_blank" rel="noreferrer">Ver mod de Dedsafio <span aria-hidden="true">↗</span></a>
+          <button class="button button-primary" type="button" data-download-url="https://github.com/EricReck/portfolio/releases/download/v1.1.1/dedsafio4-1.1.1.jar" data-download-filename="dedsafio4-1.1.1.jar">Descargar Dedsafio 4 Mechanics <span aria-hidden="true">↓</span></button>
         </div>
-      </div>
-      <div class="portrait-wrap" aria-label="Skin de Minecraft de EricReck">
-        <div class="portrait-halo" aria-hidden="true"></div>
-        <div class="portrait-frame" aria-hidden="true"></div>
-        <img class="portrait" src="minecraft-skin-studio-1152x2048.png" alt="Skin personalizada de Minecraft de EricReck">
-        <span class="pixel-label label-java">Java Edition</span>
-        <span class="pixel-label label-bedrock">Bedrock Edition</span>
-        <span class="pixel-cross" aria-hidden="true">✳</span>
-      </div>
-      <a class="scroll-hint" href="#proyectos">Scroll para explorar</a>
-    </section>
+      </article>
 
-    <section class="stats-band" aria-label="Estadísticas públicas">
-      <div class="stats shell">
-        <div class="stat"><span class="stat-value">4.8K+</span><span class="stat-label">Descargas combinadas</span></div>
-        <div class="stat"><span class="stat-value">8</span><span class="stat-label">Proyectos publicados</span></div>
-      </div>
-    </section>
-
-    <section class="section shell" id="proyectos">
-      <div class="section-head reveal">
-        <div><p class="section-index">01 / Cosas que he creado</p><h2>Proyectos<br>del mundo real.</h2></div>
-        <p class="section-intro">Mods y addons publicados para cambiar las reglas, dar herramientas a los servidores o añadir una idea nueva al juego.</p>
-      </div>
-      <div class="project-controls reveal">
-        <div class="filters" role="group" aria-label="Filtrar proyectos por edición">
-          <button class="filter" type="button" aria-pressed="true" data-filter="all">Todos</button>
-          <button class="filter" type="button" aria-pressed="false" data-filter="java">Java</button>
-          <button class="filter" type="button" aria-pressed="false" data-filter="bedrock">Bedrock</button>
-        </div>
-        <span class="project-count" aria-live="polite">8 proyectos</span>
-      </div>
-      <div class="project-grid">
-        <button class="project-card reveal" type="button" data-edition="java" data-project="dedsafio4-mechanics" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><span class="project-mark-text" aria-hidden="true">D4</span></span><span class="platform-tag">Java · Caos Studio<br>CurseForge</span></span>
-          <h3>Dedsafio 4 Mechanics</h3>
-          <p>Catálogo de objetos, misiones configurables, hermandades, pedestal diario y nuevos objetos para Dedsafio 4.</p>
-          <span class="project-bottom"><span class="project-downloads">Nueva versión <span>disponible</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="java" data-project="extremo-3" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/1894/991/256/256/639184854770159245.png" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
-          <h3>Extremo 3</h3>
-          <p>Recreación del evento Minecraft Extremo 3, creado por AuronPlay, con vidas, peligrosidad y PvP dinámico.</p>
-          <span class="project-bottom"><span class="project-downloads">2.6K+ <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="java" data-project="playtime-limiter" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/709/256/256/639260544718500834.PNG" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
-          <h3>PlayTime Limiter</h3>
-          <p>Sesiones y descansos configurables para ayudar a gestionar el tiempo en servidores.</p>
-          <span class="project-bottom"><span class="project-downloads">905+ <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="bedrock" data-project="jail-send" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/681/256/256/639260537289519323.png" alt=""></span><span class="platform-tag">Bedrock<br>CurseForge</span></span>
-          <h3>Jail Send</h3>
-          <p>Construye una cárcel, configura la condena y envía jugadores con cuenta atrás.</p>
-          <span class="project-bottom"><span class="project-downloads">806 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="java" data-project="waitscreen" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/1915/192/256/256/639194450402862258.png" alt=""></span><span class="platform-tag">Java · NeoForge<br>CurseForge + Modrinth</span></span>
-          <h3>WaitScreen</h3>
-          <p>Pantalla de espera para gestionar la entrada al servidor hasta que todo esté listo.</p>
-          <span class="project-bottom"><span class="project-downloads">271 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="bedrock" data-project="builder-hat" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/683/256/256/639260537865602565.png" alt=""></span><span class="platform-tag">Bedrock<br>CurseForge</span></span>
-          <h3>Builder Hat</h3>
-          <p>Un casco de constructor que se suma a la colección y protege como uno de hierro.</p>
-          <span class="project-bottom"><span class="project-downloads">210 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="java" data-project="blockit" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2072/602/256/256/639260510977327953.jpg" alt=""></span><span class="platform-tag">Java<br>CurseForge</span></span>
-          <h3>BlockIt</h3>
-          <p>Bloquea bloques, objetos o mods completos y permite excepciones concretas.</p>
-          <span class="project-bottom"><span class="project-downloads">4 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-        <button class="project-card reveal" type="button" data-edition="java" data-project="plasmo-voice-mute" aria-haspopup="dialog" aria-controls="project-dialog">
-          <span class="project-top"><span class="project-mark"><img src="https://media.forgecdn.net/avatars/thumbnails/2071/612/256/256/639260210820571309.jpg" alt=""></span><span class="platform-tag">Java · Fabric 1.20.1<br>CurseForge</span></span>
-          <h3>Plasmo Voice @a mute</h3>
-          <p>Comandos de mute y unmute para jugadores que usan Plasmo Voice Chat.</p>
-          <span class="project-bottom"><span class="project-downloads">2 <span>descargas</span></span><span class="project-open-hint">Ver detalles <span aria-hidden="true">↗</span></span></span>
-        </button>
-      </div>
-    </section>
-
-    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
-      <div class="dialog-panel">
-        <div class="dialog-heading">
-          <div class="dialog-icon"><img id="dialog-icon" src="" alt=""></div>
-          <div><h3 class="dialog-title" id="dialog-title"></h3><p class="dialog-meta" id="dialog-meta"></p></div>
-          <button class="dialog-close" type="button" aria-label="Cerrar ficha del proyecto">×</button>
-        </div>
-        <div class="dialog-description" id="dialog-description"></div>
-        <div class="dialog-links" id="dialog-links" aria-label="Plataformas de descarga"></div>
-      </div>
-    </dialog>
-
-    <section class="work-section shell reveal" id="sobre-mi">
-      <div class="work-panel">
-        <div><p class="section-index">02 / Ahora mismo</p><h2>Colaborando en Caos Studio.</h2><p>Colaboro como developer en Caos Studio y publico mis proyectos en CurseForge y Modrinth. Minecraft Java y Bedrock, ideas pequeñas y sistemas que dan juego.</p></div>
-        <div class="studio-stamp" aria-label="Colaborando en Caos Studio">COLLABORATING<strong>CAOS<br>STUDIO</strong></div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contacto">
-      <div class="contact-inner shell reveal">
-        <div><p class="section-index">03 / Contacto</p><h2>¿Tienes una idea para el próximo mundo?</h2></div>
-        <div class="contact-actions">
-          <button class="button" id="copy-discord" type="button"><span>@ericreck</span><span class="button-arrow" aria-hidden="true">⧉</span><span class="sr-only" id="copy-status" aria-live="polite"></span></button>
-          <a class="button" href="https://discord.gg/8H5veDVzuM" target="_blank" rel="noreferrer">Unirse al Discord <span class="button-arrow" aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-inner shell">
-      <span>© 2026 EricReck · Hecho para Minecraft</span>
-      <nav class="footer-socials" aria-label="Enlaces sociales">
-        <a class="footer-avatar" href="#contacto" aria-label="Contactar con EricReck"><img src="profile%20picture.png" alt=""></a>
-        <a href="https://www.curseforge.com/members/ericreck/projects" target="_blank" rel="noreferrer">CurseForge</a>
-        <a href="https://modrinth.com/user/EricReck" target="_blank" rel="noreferrer">Modrinth</a>
-        <a href="#contacto">Discord</a>
-        <a href="privacidad.html">Privacidad</a>
-        <button class="cookie-settings" type="button" data-cookie-settings>Cookies</button>
-      </nav>
-      <span class="footer-note">Datos consultados sep. 2026</span>
     </div>
-  </footer>
-  <style>.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }</style>
+  </main>
+  <footer><div class="footer-inner shell"><span>© 2026 EricReck · Hecho para Minecraft</span><a href="https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" target="_blank" rel="noreferrer">Página oficial en CurseForge ↗</a><a href="privacidad.html">Política de privacidad</a><button class="cookie-settings" type="button" data-cookie-settings>Cookies</button></div></footer>
+
+  <dialog class="download-dialog" id="download-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-panel">
+      <div class="dialog-head"><div><p class="section-index">Antes de descargar</p><h2 id="dialog-title">Anuncio y condiciones</h2></div><button class="dialog-close" type="button" aria-label="Cerrar">×</button></div>
+      <section class="ad-box" aria-label="Anuncio de Google AdSense">
+        <span class="ad-label">Anuncio · Google AdSense</span>
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; min-height:120px;"
+             data-ad-client="ca-pub-3618331689570044"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </section>
+      <p class="timer" id="ad-timer" aria-live="polite">El anuncio termina en 10 segundos.</p>
+      <section class="terms" aria-labelledby="terms-title">
+        <h3 id="terms-title">Términos y condiciones del mod Dedsafio 4 Mechanics</h3>
+        <div class="legal-viewport">
+          <div class="legal-copy">
+            <p><strong>PROPIETARY MOD LICENSE</strong><br><strong>ALL RIGHTS RESERVED</strong></p>
+
+            <p><strong>Project:</strong> Dedsafio 4 Mechanics<br><strong>Author / Copyright Holder:</strong> EricReck<br><strong>License Version:</strong> 1.0<br><strong>Mod Version:</strong> 1.1.1<br><strong>Effective Date:</strong> 15/10/2026<br><strong>Official Website:</strong> https://ericreck.vercel.app/</p>
+
+          <p>Copyright © 2026 EricReck. All rights reserved.</p>
+
+          <p>Esta licencia regula la descarga, instalación y uso del mod identificado anteriormente (el “Mod”). Al descargar, instalar, copiar o utilizar el Mod, reconoces que has leído y entendido esta licencia y aceptas cumplir sus términos, en la medida permitida por la legislación aplicable.</p>
+
+          <p>Si no aceptas estos términos, no descargues, instales ni uses el Mod.</p>
+
+          <p><strong>1. OWNERSHIP AND COPYRIGHT</strong><br>El Mod, incluyendo su código fuente original, archivos compilados, activos originales, documentación, texturas, modelos, archivos de configuración y demás materiales originales suministrados por el titular de derechos, está protegido por las leyes aplicables de copyright e propiedad intelectual.</p>
+
+          <p>Todos los derechos, título e interés sobre los materiales originales que componen el Mod permanecen en sus respectivos titulares de derechos. No se transfiere ninguna propiedad del Mod al usuario por descargarlo, instalarlo o usarlo.</p>
+
+          <p>El nombre, la marca, los logotipos y otros elementos identificativos del Mod también pueden estar protegidos. Esta licencia no concede derechos sobre materiales de terceros más allá de los permisos de sus respectivos titulares.</p>
+
+          <p><strong>2. LIMITED PERSONAL-USE LICENSE</strong><br>Subject to compliance with this license, the copyright holder grants you a limited, non-exclusive, non-transferable, revocable license to:</p>
+
+          <ul>
+            <li>Descargar el Mod desde su página oficial de distribución.</li>
+            <li>Instalar y ejecutar el Mod para uso personal y no comercial.</li>
+            <li>Usar el Mod localmente o en un servidor multijugador, siempre que no redistribuyas el Mod en violación de esta licencia.</li>
+            <li>Guardar una copia de seguridad personal cuando lo permita la ley aplicable.</li>
+          </ul>
+
+          <p>Esta licencia no transfiere propiedad del Mod ni concede derechos distintos a los expresamente indicados.</p>
+
+          <p><strong>3. PROHIBITED REDISTRIBUTION</strong><br>Sin previo permiso escrito del titular de derechos, no puedes:</p>
+
+          <ul>
+            <li>Reutilizar, subir, duplicar, mirror, re-publicar o redistribuir el Mod o copias de sus archivos en sitios de terceros, plataformas, repositorios, servicios de alojamiento o lanzadores.</li>
+            <li>Distribuir el Mod a través de plataformas de mods de terceros, incluyendo sitios web de hosting y servicios públicos de distribución.</li>
+            <li>Incluir el Mod, total o parcialmente, en modpacks de terceros, bundles, instaladores o paquetes distribuidos a otras personas.</li>
+            <li>Subir el Mod a un repositorio público o servicio de intercambio para su distribución.</li>
+            <li>Ofrecer otra ubicación de descarga que aloje una copia del Mod.</li>
+            <li>Vender, sublicenciar, alquilar o distribuir comercialmente el Mod o sus materiales originales.</li>
+            <li>Eliminar o alterar avisos de copyright o información de licencia incluidos con el Mod.</li>
+          </ul>
+
+          <p>Compartir el enlace a la página oficial de descarga queda permitido y se recomienda. Puedes recomendar el Mod, hablar de él, reseñarlo o dirigir a otras personas a la web oficial, siempre que no representes afiliación con el autor.</p>
+
+          <p>Estas restricciones solo se aplican a materiales y derechos controlados por el titular y están sujetas a los derechos irrenunciables y excepciones previstos por la legislación aplicable.</p>
+
+          <p><strong>4. MODIFICATION AND DERIVATIVE WORKS</strong><br>Sin permiso previo por escrito del titular de derechos, no puedes distribuir públicamente versiones modificadas del Mod ni obras derivadas basadas en sus materiales originales.</p>
+
+          <p>No puedes publicar builds modificados, forks no oficiales, versiones reempaquetadas o copias alteradas bajo el nombre original del proyecto de forma que sugiera respaldo oficial.</p>
+
+          <p>Esta sección no prohíbe actividades que la legislación permita expresamente y que no puedan restringirse legalmente.</p>
+
+          <p><strong>5. SOURCE CODE AND DECOMPILATION</strong><br>Salvo que el titular de derechos publique el código fuente bajo una licencia que lo permita, no se concede permiso para redistribuir el código fuente del Mod ni publicar versiones descompiladas o reconstruidas de su código original.</p>
+
+          <p>Cualquier restricción de esta sección está sujeta a las excepciones obligatorias que puedan aplicarse por ley, incluida la interoperabilidad, la investigación de seguridad u otras actividades protegidas. Tener una copia compilada no concede propiedad ni derechos ilimitados sobre el código fuente.</p>
+
+          <p><strong>6. MODPACKS AND THIRD-PARTY LAUNCHERS</strong><br>El Mod no puede incluirse en un modpack distribuido públicamente, paquete de terceros, instalación empaquetada u otra distribución de terceros sin autorización previa del titular de derechos. Los usuarios y creadores de modpacks pueden enlazar a la página oficial de descarga.</p>
+
+          <p>Esta restricción no permite prohibir actividades autorizadas de forma independiente por la legislación aplicable o por las licencias de materiales de terceros.</p>
+
+          <p><strong>7. ATTRIBUTION AND PROJECT IDENTITY</strong><br>Puedes identificar el Mod por su nombre oficial al comentar, reseñar o recomendarlo. No puedes reclamar autoría, propiedad ni afiliación oficial con el proyecto. No puedes quitar avisos de copyright ni licencias de copias que legalmente tengas permiso para poseer o usar.</p>
+
+          <p><strong>8. THIRD-PARTY MATERIALS AND DEPENDENCIES</strong><br>El Mod puede depender de Fabric, Minecraft, librerías, APIs o materiales de terceros regulados por licencias separadas. Esos materiales siguen sujetos a sus respectivas condiciones. Esta licencia solo aplica a materiales originales sobre los que el titular de derechos identificado tiene los derechos necesarios.</p>
+
+          <p>Nada en esta licencia anula derechos concedidos por una licencia de terceros ni restringe derechos que deban mantenerse disponibles. Minecraft y Fabric no pertenecen al titular del Mod; este proyecto no es un producto oficial suyo ni implica su respaldo.</p>
+
+          <p><strong>9. DISCLAIMER OF WARRANTIES</strong><br>En la máxima medida permitida por la legislación aplicable, el Mod se ofrece “TAL CUAL” y “SEGÚN DISPONIBILIDAD”, sin garantías de ningún tipo, expresas o implícitas. El titular de derechos no garantiza que el Mod esté libre de errores, sea continuo, compatible con cada configuración o adecuado para cualquier propósito.</p>
+
+          <p>El usuario es responsable de conservar copias de seguridad y comprobar la compatibilidad antes de instalarlo. Esta sección no excluye ni limita garantías o derechos de consumidores que legalmente no puedan excluirse o limitarse.</p>
+
+          <p><strong>10. LIMITATION OF LIABILITY</strong><br>En la máxima medida permitida por la legislación aplicable, el titular de derechos no será responsable de pérdidas indirectas, incidentales, especiales o consecuentes derivadas del uso o imposibilidad de uso del Mod.</p>
+
+          <p>Nada en esta licencia excluye ni limita responsabilidades cuando la legislación lo prohíba, incluida cualquier responsabilidad que no pueda renunciarse legalmente.</p>
+
+          <p><strong>11. TERMINATION</strong><br>Los permisos concedidos bajo esta licencia pueden terminar si incumples materialmente sus términos, sujetos a cualquier requisito legal aplicable y a derechos que la ley deba preservar. Tras la terminación, deberás cesar todas las actividades no autorizadas por esta licencia.</p>
+
+          <p>La terminación no elimina derechos ni excepciones que deban seguir disponibles conforme a la ley.</p>
+
+          <p><strong>12. CHANGES AND NEW VERSIONS</strong><br>El titular de derechos puede publicar versiones actualizadas del Mod o revisar los términos aplicables a versiones futuras. A menos que se indique lo contrario, una nueva versión de la licencia no reescribe automáticamente los términos aplicables a copias anteriores obtenidas legalmente bajo una versión previa.</p>
+
+          <p>Cada lanzamiento puede identificar la versión de licencia que le corresponde.</p>
+
+          <p><strong>13. PERMISSIONS AND EXCEPTIONS</strong><br>Cualquier permiso para redistribuir, modificar, empaquetar o usar comercialmente el Mod debe obtenerse por escrito del titular de derechos. El titular puede conceder excepciones o permisos adicionales caso por caso.</p>
+
+          <p>Una excepción concedida a una persona no concede automáticamente el mismo permiso a otras.</p>
+
+          <p><strong>14. REPORTING UNAUTHORIZED DISTRIBUTION</strong><br>Si descubres una copia del Mod distribuida sin autorización, puedes notificar al titular de derechos a través de la información de contacto oficial. Incluye la ubicación de la copia sospechosa y cualquier dato relevante.</p>
+
+          <p>El titular puede investigar y ejercer las acciones disponibles cuando corresponda conforme a la legislación aplicable.</p>
+
+          <p><strong>15. GOVERNING LAW</strong><br>Esta licencia se rige por las leyes aplicables de copyright y propiedad intelectual. Cualquier disposición de ley o jurisdicción aplicable debe interpretarse consistentemente con la protección legal imperativa y los requisitos no renunciables.</p>
+
+          <p><strong>16. SEVERABILITY</strong><br>Si alguna disposición de esta licencia se considera inválida o no ejecutable, las restantes permanecerán en vigor en la medida permitida por la ley.</p>
+
+          <p><strong>17. ENTIRE LICENSE</strong><br>Este documento describe los permisos concedidos por el titular de derechos para el Mod y sustituye declaraciones anteriores sobre los mismos permisos, salvo que exista un acuerdo escrito separado.</p>
+
+            <p><strong>18. CONTACT</strong><br>Para solicitudes de licencia, permisos de redistribución o consultas, contacta con:<br><strong>Author:</strong> EricReck<br><strong>Official Website:</strong> https://ericreck.vercel.app/</p>
+
+            <p><strong>ALL RIGHTS RESERVED.</strong><br>No se conceden derechos salvo los expresamente indicados en esta licencia o los exigidos por la ley aplicable.</p>
+          </div>
+        </div>
+        <label class="terms-check"><input id="terms-accepted" type="checkbox" disabled><span>He leído y acepto estos términos y condiciones.</span></label>
+      </section>
+      <div class="dialog-actions"><button class="button" id="cancel-download" type="button">Cancelar</button><button class="button button-primary" id="confirm-download" type="button" disabled>Continuar a la descarga</button></div>
+    </div>
+  </dialog>
   <script>
     const siteNav = document.querySelector(".nav");
     const navToggle = document.querySelector(".nav-toggle");
@@ -427,200 +353,83 @@
       if (!siteNav.contains(event.target)) closeNavigation();
     });
 
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const projectCards = document.querySelectorAll(".project-card");
-    const projectCount = document.querySelector(".project-count");
+    const dialog = document.querySelector("#download-dialog");
+    const timerLabel = document.querySelector("#ad-timer");
+    const termsCheckbox = document.querySelector("#terms-accepted");
+    const confirmButton = document.querySelector("#confirm-download");
+    const closeButton = document.querySelector(".dialog-close");
+    let pendingDownload = null;
+    let timerId = null;
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const selected = button.dataset.filter;
-        let visible = 0;
-        filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-        projectCards.forEach((card) => {
-          const matches = selected === "all" || card.dataset.edition === selected;
-          card.hidden = !matches;
-          if (matches) visible += 1;
-        });
-        projectCount.textContent = `${visible} ${visible === 1 ? "proyecto" : "proyectos"}`;
-      });
-    });
+    function resetGate() {
+      window.clearInterval(timerId);
+      timerId = null;
+      pendingDownload = null;
+      termsCheckbox.checked = false;
+      termsCheckbox.disabled = true;
+      confirmButton.disabled = true;
+      timerLabel.textContent = "El anuncio termina en 10 segundos.";
+    }
 
-    const projectDetails = {
-      "dedsafio4-mechanics": {
-        title: "Dedsafio 4 Mechanics",
-        meta: "Minecraft Java · Mod · Caos Studio",
-        image: "",
-        description: [
-          "Mod de Dedsafio 4 con catálogo de objetos, misiones configurables con progreso persistente, pedestal de misión diaria y hermandades.",
-          "La actualización también incluye mejoras de interfaz, cambios de dificultad y nuevos objetos como tótems, corazones y bolsas. Los waypoints ampliados tienen fallos de renderizado y escalado previstos para corregirse en la próxima actualización."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/dedsafio4-mechanics" }
-        ]
-      },
-      "extremo-3": {
-        title: "Extremo 3",
-        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
-        image: "https://media.forgecdn.net/avatars/thumbnails/1894/991/256/256/639184854770159245.png",
-        description: [
-          "Recreación del evento de Minecraft Extremo 3 creado por AuronPlay, llevada a un mod para Minecraft Java 1.21.1.",
-          "Incluye un sistema de cinco vidas, niveles de peligrosidad persistentes y consecuencias especiales al llegar a cero vidas.",
-          "Incluye controles globales de PvP, eventos de sonido, un HUD con el estado de las vidas y memoriales para jugadores eliminados."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/extreme-3-mechanics" },
-          { name: "Modrinth", href: "https://modrinth.com/mod/extremo-3" }
-        ]
-      },
-      "playtime-limiter": {
-        title: "PlayTime Limiter",
-        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
-        image: "https://media.forgecdn.net/avatars/thumbnails/2072/709/256/256/639260544718500834.PNG",
-        description: [
-          "Ayuda a gestionar el tiempo de juego en servidores con sesiones limitadas y descansos obligatorios configurables.",
-          "Muestra el tiempo restante en una BossBar, avisa antes de que termine la sesión y ofrece comandos para ajustar límites y pausas por jugador o para todo el servidor."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/playtimelimiter-neoforge" },
-          { name: "Modrinth", href: "https://modrinth.com/mod/neoforge-playtime-limiter" }
-        ]
-      },
-      "jail-send": {
-        title: "Jail Send",
-        meta: "Minecraft Bedrock · Add-on",
-        image: "https://media.forgecdn.net/avatars/thumbnails/2072/681/256/256/639260537289519323.png",
-        description: [
-          "Añade un sistema de cárcel configurable: construye el espacio, define sus coordenadas y ajusta la duración de la condena o las condiciones de liberación.",
-          "Con una acción puedes enviar allí a un jugador; dentro verá una cuenta atrás. Pensado para servidores, Realms, minijuegos y mundos de aventura."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft-bedrock/addons/jail-send" }
-        ]
-      },
-      waitscreen: {
-        title: "NeoForge WaitScreen",
-        meta: "Minecraft Java 1.21.1 · NeoForge · Cliente y servidor",
-        image: "https://media.forgecdn.net/avatars/thumbnails/1915/192/256/256/639194450402862258.png",
-        description: [
-          "Muestra una pantalla de espera a quienes se conectan a un servidor o mundo LAN hasta que se cumpla el requisito de jugadores configurado.",
-          "Los operadores y administradores pueden entrar sin esperar. El estado se controla con comandos para activar, desactivar o cambiar el número de jugadores necesarios."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/waitscreen" },
-          { name: "Modrinth", href: "https://modrinth.com/mod/neoforge-waitscreen" }
-        ]
-      },
-      "builder-hat": {
-        title: "Builder Hat",
-        meta: "Minecraft Bedrock · Add-on",
-        image: "https://media.forgecdn.net/avatars/thumbnails/2072/683/256/256/639260537865602565.png",
-        description: [
-          "Añade un casco de constructor a la colección de sombreros de Minecraft Bedrock.",
-          "No reemplaza otros sombreros y ofrece la misma protección que un casco de hierro."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft-bedrock/addons/builder-hat" }
-        ]
-      },
-      blockit: {
-        title: "BlockIt",
-        meta: "Minecraft Java · Mod",
-        image: "https://media.forgecdn.net/avatars/thumbnails/2072/602/256/256/639260510977327953.jpg",
-        description: [
-          "Permite bloquear objetos y bloques de Minecraft vanilla o de otros mods.",
-          "Puedes bloquear mods completos y crear excepciones para dejar disponibles únicamente los objetos o bloques que necesitas."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-mods/blockit" }
-        ]
-      },
-      "plasmo-voice-mute": {
-        title: "Plasmo Voice @a mute",
-        meta: "Minecraft Java 1.20.1 · Fabric · Add-on",
-        image: "https://media.forgecdn.net/avatars/thumbnails/2071/612/256/256/639260210820571309.jpg",
-        description: [
-          "Un complemento para Plasmo Voice Chat que permite silenciar o reactivar a todos los jugadores del servidor que usan el chat de voz.",
-          "También permite silenciar a una persona concreta y definir la duración del mute mediante comandos."
-        ],
-        platforms: [
-          { name: "CurseForge", href: "https://www.curseforge.com/minecraft/mc-addons/plasmo-voice-a-mute" }
-        ]
-      }
-    };
-
-    const projectDialog = document.querySelector("#project-dialog");
-    const dialogIcon = document.querySelector("#dialog-icon");
-    const dialogTitle = document.querySelector("#dialog-title");
-    const dialogMeta = document.querySelector("#dialog-meta");
-    const dialogDescription = document.querySelector("#dialog-description");
-    const dialogLinks = document.querySelector("#dialog-links");
-
-    projectCards.forEach((card) => {
-      card.addEventListener("click", () => {
-        const project = projectDetails[card.dataset.project];
-        projectDialog.classList.toggle("without-icon", !project.image);
-        dialogIcon.parentElement.hidden = !project.image;
-        dialogIcon.src = project.image;
-        dialogTitle.textContent = project.title;
-        dialogMeta.textContent = project.meta;
-        dialogDescription.replaceChildren(...project.description.map((text) => {
-          const paragraph = document.createElement("p");
-          paragraph.textContent = text;
-          return paragraph;
-        }));
-        dialogLinks.replaceChildren(...project.platforms.map((platform) => {
-          const link = document.createElement("a");
-          link.href = platform.href;
-          link.target = "_blank";
-          link.rel = "noreferrer";
-          link.append(document.createTextNode(platform.name));
-          const arrow = document.createElement("span");
-          arrow.setAttribute("aria-hidden", "true");
-          arrow.textContent = "↗";
-          link.append(arrow);
-          return link;
-        }));
-        projectDialog.showModal();
-        projectDialog.querySelector(".dialog-close").focus();
-      });
-    });
-
-    projectDialog.querySelector(".dialog-close").addEventListener("click", () => projectDialog.close());
-    projectDialog.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        projectDialog.close();
-      }
-    });
-    projectDialog.addEventListener("click", (event) => {
-      if (event.target === projectDialog) projectDialog.close();
-    });
-
-    const copyButton = document.querySelector("#copy-discord");
-    const copyStatus = document.querySelector("#copy-status");
-    copyButton.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText("@ericreck");
-        copyStatus.textContent = "Copiado";
-        copyButton.querySelector(".button-arrow").textContent = "✓";
-      } catch {
-        copyStatus.textContent = "Discord: @ericreck";
-      }
-      window.setTimeout(() => {
-        copyStatus.textContent = "";
-        copyButton.querySelector(".button-arrow").textContent = "⧉";
-      }, 2200);
-    });
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
+    function startDownloadGate(download) {
+      resetGate();
+      pendingDownload = download;
+      dialog.showModal();
+      closeButton.focus();
+      const adsAllowed = window.ericreckCookieConsent === "accepted";
+      timerLabel.textContent = adsAllowed ? "El anuncio termina en 10 segundos." : "Sin anuncios; la descarga estará disponible en 10 segundos.";
+      if (adsAllowed) requestAnimationFrame(() => document.dispatchEvent(new Event("ericreck:request-ad")));
+      let secondsRemaining = 10;
+      timerId = window.setInterval(() => {
+        secondsRemaining -= 1;
+        if (secondsRemaining > 0) {
+          timerLabel.textContent = `El anuncio termina en ${secondsRemaining} segundos.`;
+          return;
         }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+        window.clearInterval(timerId);
+        timerId = null;
+        timerLabel.textContent = "Ya puedes aceptar las condiciones de descarga.";
+        termsCheckbox.disabled = false;
+        termsCheckbox.focus();
+      }, 1000);
+    }
+
+    document.querySelectorAll("[data-download-url]").forEach((button) => {
+      button.addEventListener("click", () => startDownloadGate({
+        url: button.dataset.downloadUrl,
+        filename: button.dataset.downloadFilename
+      }));
+    });
+
+    termsCheckbox.addEventListener("change", () => {
+      confirmButton.disabled = !termsCheckbox.checked;
+    });
+
+    confirmButton.addEventListener("click", () => {
+      if (!termsCheckbox.checked || !pendingDownload?.url) return;
+      const downloadLink = document.createElement("a");
+      downloadLink.href = pendingDownload.url;
+      downloadLink.download = pendingDownload.filename || "";
+      downloadLink.hidden = true;
+      document.body.append(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      dialog.close();
+      resetGate();
+    });
+
+    function closeDialog() {
+      dialog.close();
+      resetGate();
+    }
+
+    closeButton.addEventListener("click", closeDialog);
+    document.querySelector("#cancel-download").addEventListener("click", closeDialog);
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) closeDialog();
+    });
+    dialog.addEventListener("close", resetGate);
+
   </script>
 </body>
 </html>
